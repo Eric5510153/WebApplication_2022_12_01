@@ -1,0 +1,506 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    
+    <style>
+        #controlPanel {
+            border: 10px groove #2894FF;
+            background-color: #B9B9FF;
+            width: 1000px;
+            margin: auto;
+            box-shadow: 0px 0px 5px #8F41E9;
+            border-radius: 10px;
+        }
+
+        #btnArea {
+            padding: 10px;
+            text-align: center;
+        }
+
+            #btnArea > span {
+                font-family: Webdings;
+                -webkit-text-fill-color: #000093;
+                cursor: pointer;
+                font-size: 4rem;
+                background-image: linear-gradient(60deg, #578AEF,#00ffff,#8F41E9,#8F41E9 90%);
+                border-radius: 10%;
+                padding: 6px;
+            }
+
+        .btnVol {
+            border-radius: 10%;
+            background-image: linear-gradient(to right, #578AEF, #8F41E9), linear-gradient(60deg, #8F41E9, #578AEF);
+            background: linear-gradient(90deg,#8600FF, #00FFFF);
+            border: 3px groove #8600FF;
+            /*border-image: linear-gradient(to right, #578AEF, #8F41E9), linear-gradient(60deg, #8F41E9, #578AEF);*/
+
+            box-shadow: 0px 0px 1px;
+            cursor: pointer;
+        }
+
+        #btnMute {
+            border: 3px groove #8600FF;
+            height: 25px;
+            width: 25px;
+            margin-left: 10px;
+            background-image: linear-gradient(90deg, #578AEF,#00ffff,#8F41E9,#8F41E9 90%);
+            cursor: pointer;
+            border-radius: 10%;
+            color: #000093;
+            font-family: Webdings;
+            font-size: 25px;
+            text-align: center;
+        }
+
+        #setVolValue {
+            width: 830px;
+            height: 10px;
+            border: 3px solid #8600FF;
+            appearance: none;
+        }
+
+            #setVolValue::-webkit-slider-thumb {
+                appearance: none;
+                border: 3px solid hsla(0, 100%, 100%, .5);
+                background-color: #ffffff;
+                background: linear-gradient(90deg,#8600FF, #00FFFF);
+                border-radius: 5px;
+                width: 35px;
+                height: 25px;
+                cursor: pointer;
+            }
+
+            #setVolValue::-moz-range-thumb {
+                border: 3px solid #8600FF;
+                background-image: linear-gradient(to right, #578AEF, #8F41E9), linear-gradient(60deg, #8F41E9, #578AEF);
+                width: 30px;
+                height: 20px;
+                cursor: pointer;
+            }
+
+        #volValue {
+            border: 3px solid transparent;
+            border-radius: 30%;
+            width: 25px;
+            height: 23px;
+            background-clip: padding-box, border-box;
+            background-origin: padding-box, border-box;
+            background-image: linear-gradient(to right, #00FFFF, #00FFFF), linear-gradient(60deg, #8F41E9, #578AEF);
+            text-align: center;
+        }
+
+        #info {
+            font-family: 微軟正黑體;
+        }
+
+            #info > div {
+                text-align: center;
+                color: #9F35FF;
+            }
+
+        #progress {
+            width: 99.5%;
+            height: 5px;
+            appearance: none;
+            margin-bottom: 10px;
+            background-color: #a5ffff;
+        }
+
+            #progress::-webkit-slider-thumb {
+                appearance: none;
+                background-image: linear-gradient(to right, #578AEF, #8F41E9), linear-gradient(60deg, #8F41E9, #578AEF);
+                cursor: pointer;
+                width: 10px;
+                height: 5px;
+                transition: .5s;
+            }
+
+                #progress::-webkit-slider-thumb:hover {
+                    border-radius: 50%;
+                    width: 30px;
+                    height: 30px;
+                }
+
+            #progress::-moz-range-thumb {
+                background-image: linear-gradient(to right, #578AEF, #8F41E9), linear-gradient(60deg, #8F41E9, #578AEF);
+                width: 10px;
+                height: 5px;
+                cursor: pointer;
+                transition: .5s;
+            }
+
+                #progress::-moz-range-thumb:hover {
+                    border-radius: 30%;
+                    width: 15px;
+                    height: 15px;
+                    cursor: pointer;
+                }
+
+        #music {
+            border: 3px ridge #8F41E9;
+            font-family: 微軟正黑體;
+        }
+
+        #music, #info {
+            width: inherit;
+            font-size: 2rem;
+            background-color: #B9B9FF;
+            color: chartreuse;
+            text-align: center;
+        }
+
+        #book {
+            background-color: #B9B9FF;
+            color: #6F00D2;
+        }
+
+            #book > div {
+                color: #6f00d2;
+                border: 3px groove;
+                width: 494px;
+                height: 200px;
+                float: left;
+            }
+
+                #book > div > div {
+                    color: #6f00d2;
+                    font-size: 1.2rem;
+                    border-bottom: 1px solid;
+                    padding: 2px;
+                }
+
+            #book > button {
+                clear: both;
+                width: 100%;
+                background-image: linear-gradient(to right, #578AEF, #8F41E9), linear-gradient(90deg, #8F41E9, #578AEF);
+                font-size: 1.4rem;
+                text-align: center;
+                border: 3px groove white;
+                color: #6f00d2;
+                font-weight: 900;
+            }
+
+        .hide {
+            display: none;
+        }
+
+        #marquee {
+            white-space: nowrap;
+            overflow: hidden;
+            box-sizing: border-box;
+            display: inline-block;
+            padding-left: 100%;
+            animation: marquee 15s linear infinite;
+        }
+
+        @keyframes marquee {
+            0% {
+                transform: translate(0, 0);
+            }
+
+            100% {
+                transform: translate(-100%, 0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <audio controls="controls" id="myAudio" hidden>
+        <source type="audio/mpeg" />
+    </audio>
+
+   
+    <div id="controlPanel">
+        <select id="music" onchange="changeMusic(0)" style="color:#8F41E9">
+        </select>
+        <hr style="color: #AAAAFF" />
+        <div id="btnArea">
+            <span onclick="playPlayer()">4</span>
+            <span onclick="stopAudio()"><</span>
+            <span onclick="changeMusic(-1)">9</span>
+            <span onclick="changeTime(-10)">7</span>
+            <span onclick="changeTime(10)">8</span>
+            <span onclick="changeMusic(1)">:</span>
+
+            <span onclick="setLoop()">q</span>
+            <span onclick="setRandom()">s</span>
+            <span onclick="setAllLoop()">`</span>
+            <span onclick="showBook()">)</span>
+
+        </div>
+
+        <hr style="color: #AAAAFF" />
+        <input id="progress" type="range" value="0" oninput="setProgressBar()" />
+            <img id="btnMute" src="PLAYER_PHOTO/SPEAKER.png" onclick="setMuted()" />
+            <input id="setVolValue" type="range" oninput="setVolume()" value="100" />
+            <button class="btnVol" onclick="btnSetVolume(-1)">－</button>
+            <button class="btnVol" onclick="btnSetVolume(1)">＋</button>
+            <input id="volValue" type="text" readonly disabled="disabled" />
+
+
+
+            <hr style="color: #AAAAFF" />
+            <div id="info">
+            <p style="color: #9F35FF" id="marquee">請按下播放鈕</p>
+            <div>00:00 / 00:00</div>
+            <div>正常</div>
+        </div>
+        <div id="book" class="hide">
+            <div ondrop="drop(event)" ondragover="allowDrop(event)">
+                <div title="sound/Aftershock (feat. Jacquie Lee).mp3">Cash Cash - Aftershock</div>
+                <div title="sound/Dripice - Escape [Epic Vibes Release].mp3">Dripice - Escape</div>
+                <div title="sound/Ennex - Adventure Awaits [Summer Sounds Release].mp3">Ennex - Adventure Awaits</div>
+                <div title="sound/Martin Garrix - High On Life Ft.Bonn.mp3">Martin Garrix - High On Life Ft.Bonn</div>
+                <div title="sound/Tobu - Melomania.mp3">Tobu - Melomania</div>
+                <div title="sound/William Ekh - Adventure (feat. Alexa Lusader).mp3">William Ekh - Adventure</div>
+            </div>
+            <div ondrop="drop(event)" ondragover="allowDrop(event)">
+
+            </div>
+            <button onclick="updateMusic()">更新歌單</button>
+        </div>
+    </div>
+    <script>
+        var book = document.getElementById("book");
+        var audio = document.getElementById("myAudio");
+        var controlPanel = document.getElementById("controlPanel");
+        var btnArea = document.getElementById("btnArea");
+        var info = document.getElementById("info");
+        var setVolValue = document.getElementById("setVolValue");
+        var volValue = document.getElementById("volValue");
+        var progress = document.getElementById("progress");
+        var music = document.getElementById("music");
+
+        console.log(btnArea.children[6]);
+
+        let btnPlay = btnArea.children[0];
+        let btnMuted = btnMute.children[0];
+
+
+        function showBook() {
+            book.className = book.className == "" ? "hide" : "";
+        }
+
+        var option;
+        for (var i = 0; i < book.children[0].children.length; i++) {
+            book.children[0].children[i].draggable = "true";
+            book.children[0].children[i].id = "song" + i;
+
+            
+            book.children[0].children[i].ondragstart = drag;
+
+            option = document.createElement("option");
+          
+
+            option.value = book.children[0].children[i].title;
+            option.innerText = book.children[0].children[i].innerText;
+            music.appendChild(option);
+        }
+        changeMusic(0);
+
+
+        function updateMusic() {
+            
+
+            for (var i = music.children.length - 1; i >= 0; i--) {
+                music.remove(i);
+            }
+
+           
+            for (var i = 0; i < book.children[1].children.length; i++) {
+
+                option = document.createElement("option");
+                
+
+                option.value = book.children[1].children[i].title;
+                option.innerText = book.children[1].children[i].innerText;
+                music.appendChild(option);
+            }
+
+
+            changeMusic(0);
+        }
+
+
+        
+        function allowDrop(ev) {
+            ev.preventDefault();  
+        }
+
+
+        function drag(ev) {
+            ev.dataTransfer.setData("aaa", ev.target.id);
+        }
+
+        
+        function drop(ev) {
+            ev.preventDefault();
+            var data = ev.dataTransfer.getData("aaa");
+
+            if (ev.target.id == "")
+                ev.target.appendChild(document.getElementById(data));
+            else
+                ev.target.parentNode.appendChild(document.getElementById(data));
+            
+        }
+
+        //全曲循環
+        function setAllLoop() {
+            info.children[2].innerText = info.children[2].innerText == "全曲循環" ? "正常" : "全曲循環";
+        }
+
+
+        //隨機播放
+        function setRandom() {
+            info.children[2].innerText = info.children[2].innerText == "隨機播放" ? "正常" : "隨機播放";
+        }
+
+
+        //單曲循環
+        function setLoop() {
+            info.children[2].innerText = info.children[2].innerText == "單曲循環" ? "正常" : "單曲循環";
+        }
+
+
+        
+        function changeMusic(i) {
+           
+            audio.children[0].src = music.options[music.selectedIndex + i].value;
+            audio.children[0].title = music.options[music.selectedIndex + i].innerText;
+            music.options[music.selectedIndex + i].selected = true;
+            audio.load();
+
+            if (btnPlay.innerText == ";")
+                playPlayer();
+        }
+
+
+        
+        function setProgressBar() {
+            audio.currentTime = progress.value;
+        }
+
+
+        
+        var min = 0, sec = 0;
+        function getTimeFormat(timeSec) {
+            
+            min = parseInt(timeSec / 60);
+            sec = parseInt(timeSec % 60);
+            min = min < 10 ? "0" + min : min;
+            sec = sec < 10 ? "0" + sec : sec;
+
+            return min + ":" + sec;
+        }
+
+        
+        var w = 0;
+        var r = 0; 
+        getDuration();
+        function getDuration() {
+            info.children[1].innerText = getTimeFormat(audio.currentTime) + " / " + getTimeFormat(audio.duration);
+
+            w = audio.currentTime / audio.duration * 100;
+            console.log(w);
+            progress.style.backgroundImage = "-webkit-linear-gradient(left,#46A3FF,#0000E3 " + w + "%, #46A3FF " + w + "% ,#46A3FF)";;
+            progress.max = parseInt(audio.duration);
+            progress.value = parseInt(audio.currentTime);
+
+
+            
+            if (audio.currentTime == audio.duration) {
+
+                console.log(info.children[2].innerText == "單曲循環");
+                if (info.children[2].innerText == "單曲循環")
+                    changeMusic(0);
+                else if (info.children[2].innerText == "隨機播放") {
+                    
+                    r = Math.floor(Math.random() * music.options.length);    
+                    console.log("r=" + r);
+                    r = r - music.selectedIndex;  
+
+                    changeMusic(r);
+                }
+                
+                else if (music.selectedIndex == music.options.length - 1) {
+                    if (info.children[2].innerText == "全曲循環")
+                        changeMusic(-music.selectedIndex);
+                    else
+                        stopAudio();
+                }
+
+                else
+                    changeMusic(1);
+            }
+
+
+
+            
+            setTimeout(getDuration, 50);
+            
+        }
+
+        setVolume();
+        //音量調整
+        function setVolume() {
+            volValue.value = setVolValue.value;
+            audio.volume = setVolValue.value / 100;
+
+            setVolValue.style.backgroundImage = "-webkit-linear-gradient(left,#0000E3,#46A3FF,#8600FF " + setVolValue.value + "%,  #00FFFF " + setVolValue.value + "% , #80FFFF)";
+        }
+
+        //音量微調
+        function btnSetVolume(vol) {
+            setVolValue.value = parseInt(volValue.value) + vol;
+            setVolume();
+        }
+
+
+        //設定靜音
+        function setMuted() {
+            audio.muted = !audio.muted;
+            let muteImage = document.getElementById('btnMute');
+            if (audio.muted) {
+                muteImage.src = 'PLAYER_PHOTO/SP_MUTE.png'
+            }
+            if (!audio.muted) {
+                muteImage.src = 'PLAYER_PHOTO/SPEAKER.png'
+            }
+            
+        }
+
+
+        //快轉及倒轉
+        function changeTime(sec) {
+            audio.currentTime += sec;
+        }
+
+
+        //音樂播放
+        function playPlayer() {
+            audio.play();
+            btnPlay.innerText = ";";
+            btnPlay.onclick = pausePlayer;
+            info.children[0].innerText = "現正播放:" + audio.children[0].title;
+
+        }
+
+        //音樂暫停
+        function pausePlayer() {
+            audio.pause();
+            btnPlay.innerText = "4";
+            btnPlay.onclick = playPlayer;
+            info.children[0].innerText = "音樂暫停";
+        }
+
+        //音樂停止
+        function stopAudio() {
+            pausePlayer();
+            audio.currentTime = 0;
+            info.children[0].innerText = "音樂停止";
+        }
+    </script>
+</body>
+</html>

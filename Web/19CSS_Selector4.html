@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        #table1 {
+            margin: auto;
+            font-size: 1.5rem;
+            font-family: 標楷體;
+        }
+
+            #table1 tr:nth-child(2n) {
+                background-color: #FF95CA;
+                
+            }
+
+            #table1 tr:nth-child(2n+1) {
+                background-color: #80FFFF;
+            }
+
+            #table1 tr:hover {
+                background-color: #7fffd4;
+                font-size: 2rem;
+                color: #ff0000;
+            }
+
+            #table1 td {
+                text-align: center;
+            }
+
+            #table1 td {
+                border-bottom: 1px solid;
+            }
+
+            #table1 td {
+                text-align: center;
+            }
+
+            #table1 td {
+                border-bottom: 1px solid;
+            }
+    </style>
+</head>
+<body>
+    <table id="table1">
+    </table>
+    
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        var item = "";
+
+        $.ajax({
+            type: 'get',
+            url: 'https://data.coa.gov.tw/Service/OpenData/ODwsv/ODwsvAttractions.aspx',
+            success: function (data) {
+                for (var i = 0; i < data.length; i++) {
+                    item = `<tr>
+                                                <td>${data[i].Name}</td>
+                                                <td>${data[i].Tel}</td>
+                                                <td>${data[i].Address}</td>
+                                            </tr>`;
+                    $('#table1').append(item);
+                }
+            }
+
+        });
+
+    </script>
+</body>
+</html>

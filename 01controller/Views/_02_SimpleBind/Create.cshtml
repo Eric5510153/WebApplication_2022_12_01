@@ -1,0 +1,38 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Create</title>
+</head>
+<body>
+    <h2>
+        產品資料新增作業
+    </h2>
+
+    <from actions="/_02_SimpleBind/" method="post" >
+
+        <p>品號:<input id="pId" name="pId" type="text" /></p>
+        <p>品名:<input id="pName" name="pName" type="text" /></p>
+        <p>單價:<input id="price" name="price" type="text" /></p>
+        <p><input id="Submit1" type="submit" value="新增商品" /></p>
+
+
+    </from>
+    <hr/>
+    <h3>新增作業成功</h3>
+    <div>
+        <h3>新增內容如下</h3>
+
+        <p>品號:@ViewBag.pID</p>
+        <p>品名:@ViewBag.pName</p>
+        <p>單價:@ViewBag.price</p>
+
+    </div>
+</body>
+</html>

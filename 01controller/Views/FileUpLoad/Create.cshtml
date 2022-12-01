@@ -1,0 +1,30 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Create</title>
+</head>
+<body>
+    <form method="post" actions=" /FileUpLoad/Create" enctype="multipart/form-data">
+        請選擇要上傳的檔案
+        <input id="Photo" type="file" name="Photo" />
+        <input id="Submitl" type="submit" value="上傳檔案" />
+
+    </form>
+    <hr />
+    @ViewBag.Message
+ <div>
+
+     <a href="/FileUpLoad/ShowPhotos">查看所有照片</a>
+
+ </div>
+
+
+</body>
+</html>

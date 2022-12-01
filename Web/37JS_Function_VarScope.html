@@ -1,0 +1,124 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        #controlPanel {
+            border: 1px groove #2894FF;
+            width: 750px;
+            margin: auto;
+            box-shadow: 0px 0px 5px #00FFFF;
+            border-radius: 10px;
+            padding: 10px;
+        }
+
+            #controlPanel > img {
+                cursor: pointer;
+                border: 1px solid #8600FF;
+                border-radius: 30%;
+                
+            }
+        #info {
+            font-family: 微軟正黑體;
+            color: #9F35FF;
+        }
+        #hr1 {
+            color: #2828FF;    
+        }
+            
+    </style>
+</head>
+<body>
+    
+    <audio controls="controls" id="mp3">
+        <source src="\MUSIC\Martin Garrix - High On Life Ft.Bonn.mp3" type="audio/mpeg" />
+    </audio>
+    <hr/>
+    <div id="controlPanel">
+        <img src="PLAYER PHOTO\PLAY.png" width="100" onclick="playPlayer()" id="PLAY" >
+        <!--<img src="PLAYER PHOTO\PAUSE.png" width="100" onclick="pausePlayer()">-->
+        <img src="PLAYER PHOTO\STOP.png" width="100" onclick="stopPlayer()">
+        <img src="PLAYER PHOTO\←←.png" width="100" onclick="">
+        <img src="PLAYER PHOTO\←.png" width="100" onclick="changeTime(-10)">
+        <img src="PLAYER PHOTO\→.png" width="100" onclick="changeTime(10)">
+        <img src="PLAYER PHOTO\→→.png" width="100" onclick="">
+        <hr id="hr1"/>
+        <div id="info">
+            <marquee>請按下播放鈕</marquee>
+        </div>
+        <!--<span onclick="playPlayer()">4</span>-->
+        <!--<span onclick="pausePlayer()">;</span>-->
+        <!--<span onclick="stopPlayer()"></span>-->
+        <!--<span onclick="">:</span>
+    <span onclick="changeTime(-10)"></span>
+    <span onclick="changeTime(10)"></span>
+    <span onclick=""></span>-->
+
+    </div>
+    <!--
+    <span onclick="playPlayer()">Play</span>
+    <span onclick="pausePlayer()">Pause</span>
+    <span onclick="stopPlayer()">Stop</span>
+        -->
+    <script>
+       /* var img = document.getElementById("PLAY")*/
+        var audio = document.getElementById("mp3");
+        var controlPanel = document.getElementById("controlPanel");
+        var info = document.getElementById("info");
+        console.log(controPanel.children[0]);
+        let btnPlay = controlPanel.children[0];
+        
+        //快轉及倒轉
+        function changeTime(sec) {
+            audio.currentTime += sec;
+        }
+        function playPlayer() {
+            let displayImage = document.getElementById('PLAY')
+            if (displayImage.src.match('PLAYER PHOTO\PLAY.png')) {
+                displayImage.src = 'PLAYER PHOTO\PAUSE.png';
+                audio.play;
+            }
+            else {
+                displayImage.src = 'PLAYER PHOTO\PLAY.png';
+                audio.pause;
+            }
+        }
+
+        //播放
+        /*function playPlayer() {
+            
+
+            if (audio.paused) {
+                audio.play();
+               
+            }
+            else {
+                audio.pause();
+                
+            }
+            */
+            /*audio.play();
+            btnPlay
+            btnPlay.onclick = pausePlayer;
+            
+        }
+        */
+        
+        function pausePlayer() {
+            audio.pause();
+        }
+        
+        function stopPlayer() {
+            pausePlayer();
+            audio.currentTime = 0;
+        }
+
+
+
+
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+
+        .strikethrough {
+            font-size: 10px;
+            position: relative;
+        }
+
+            .strikethrough:before {
+                
+                position: absolute;
+                content: "";
+                left: 0;
+                top: 50%;
+                right: 0;
+                border-top: 1px solid;
+                border-color: inherit;
+                -webkit-transform: rotate(-50deg);
+                -moz-transform: rotate(-50deg);
+                -ms-transform: rotate(-50deg);
+                -o-transform: rotate(-50deg);
+                transform: rotate(-50deg);
+            }
+    </style>
+</head>
+<body>
+    <span class="strikethrough">D</span>
+</body>
+</html>

@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        .test2 {
+            font-size: 2rem;
+        }
+        h1 {
+            color:#ff0000 ;
+            font-size:3rem ;
+        }
+        .h1{
+            color:#4cff00 ;  /*如果有物件屬性衝突(物件名稱一樣)會依照選擇器順序優先*/
+        }
+        .test{
+            box-shadow:0px 0px 7px #000000 ;
+            font-size:1rem ;
+        }
+       
+        #h1 {
+            color: #FFE153 ;
+        }
+        #jack {
+            color: #FFAAD5 ;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>哈囉 大家好</h1>
+    <h1 class="h1">哈囉 大家好</h1>
+    <h1 class="test">哈囉 大家好</h1>
+    <h1 class="test2">哈囉 大家好</h1>
+    <h1 id="jack" style="color:mediumpurple">哈囉 大家好</h1>
+    <h1 id="h1" class="h1 test2">哈囉 大家好</h1>
+    <h1>哈囉 大家好</h1>
+</body>
+</html>

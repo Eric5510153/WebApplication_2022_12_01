@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        h1:hover {
+            background-color: #FF2626;
+        }
+
+        h2:hover {
+            background-color: #F09C00;
+        }
+
+        h3:hover {
+            background-color: #FFFF45;
+        }
+
+        h4:hover {
+            background-color: #45FF45;
+        }
+
+        h5:hover {
+            background-color: #45FFFF;
+        }
+
+        h6:hover {
+            background-color: #0000F5;
+        }
+
+        .MyStyle:hover {
+            background-color: yellow;
+        }
+    </style>
+    </style>
+</head>
+<body>
+    <h1>&lt; 哈囉 大家好 &gt;</h1>
+
+    <pre>
+    <h1>哈囉 大家好</h1>
+    <h2>哈囉 大家好</h2>
+    <h3>哈囉 大家好</h3>
+    <h4>哈囉 大家好</h4>
+</pre>
+    <script>
+     for (j = 0; j < 100; j++)
+         for (i = 1; i < 7; i++)
+             document.write(`<h${i} class="MyStyle">哈囉大家好</h${i}>`);
+    </script>
+</body>
+</html>

@@ -1,0 +1,227 @@
+﻿#controlPanel {
+    border: 10px solid transparent;
+    background-color: #B9B9FF;
+    width: 1000px;
+    margin: auto;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    /*border-image: linear-gradient(60deg, #8F41E9,#00ffff,#578AEF,#8F41E9,#00ffff,#578AEF,#8F41E9,#00ffff,#578AEF 90%);*/
+    border-image: linear-gradient(45deg, #8F41E9,#00ffff,#578AEF,#8F41E9,#00ffff,#578AEF,#8F41E9,#00ffff,#578AEF);
+    border-image-slice: 1;
+    background-clip: padding-box;
+    padding: 5px;
+    clip-path: inset(0px round 10px);
+}
+
+
+
+#btnArea {
+    padding: 10px;
+    text-align: center;
+}
+
+    #btnArea > span {
+        font-family: Webdings;
+        -webkit-text-fill-color: #000093;
+        cursor: pointer;
+        font-size: 4rem;
+        background-image: linear-gradient(60deg, #578AEF,#00ffff,#8F41E9,#8F41E9 90%);
+        border-radius: 10%;
+        padding: 6px;
+    }
+
+.btnVol {
+    border: 3px groove #8600FF;
+    border-radius: 10%;
+    /*background-image: linear-gradient(60deg, #578AEF,#00ffff,#8F41E9,#8F41E9 90%);*/
+    background: linear-gradient(90deg,#8600FF, #00FFFF);
+    box-shadow: 0px 0px 1px;
+    cursor: pointer;
+}
+
+#btnMute {
+    border: 3px groove #8600FF;
+    height: 25px;
+    width: 25px;
+    margin-left: 10px;
+    background-image: linear-gradient(90deg, #578AEF,#00ffff,#8F41E9,#8F41E9 90%);
+    cursor: pointer;
+    border-radius: 10%;
+    color: #000093;
+    font-family: Webdings;
+    font-size: 25px;
+    text-align: center;
+}
+
+#setVolValue {
+    width: 830px;
+    height: 10px;
+    border: 3px solid #8600FF;
+    appearance: none;
+}
+
+    #setVolValue::-webkit-slider-thumb {
+        appearance: none;
+        border: 3px solid hsla(0, 100%, 100%, .5);
+        background-color: #ffffff;
+        background: linear-gradient(90deg,#8600FF, #00FFFF);
+        border-radius: 5px;
+        width: 35px;
+        height: 25px;
+        cursor: pointer;
+    }
+
+    #setVolValue::-moz-range-thumb {
+        appearance: none;
+        border: 3px solid hsla(0, 100%, 100%, .5);
+        background-color: #ffffff;
+        background: linear-gradient(90deg,#8600FF, #00FFFF);
+        border-radius: 5px;
+        width: 35px;
+        height: 25px;
+        cursor: pointer;
+        /*border: 3px solid #8600FF;
+                background-image: linear-gradient(to right, #578AEF, #8F41E9), linear-gradient(60deg, #8F41E9, #578AEF);
+                width: 30px;
+                height: 20px;
+                cursor: pointer;*/
+    }
+
+#volValue {
+    border: 3px solid transparent;
+    border-radius: 30%;
+    width: 25px;
+    height: 23px;
+    background-clip: padding-box, border-box;
+    background-origin: padding-box, border-box;
+    background-image: linear-gradient(to right, #00FFFF, #00FFFF), linear-gradient(60deg, #8F41E9, #578AEF);
+    text-align: center;
+}
+
+#info {
+    font-family: 微軟正黑體;
+}
+
+    #info > div {
+        text-align: center;
+        color: #9F35FF;
+    }
+
+#progress {
+    width: 99.5%;
+    height: 5px;
+    appearance: none;
+    margin-bottom: 10px;
+    background-color: #a5ffff;
+    border: 3px;
+}
+
+    #progress::-webkit-slider-thumb {
+        appearance: none;
+        background-image: linear-gradient(to right, #578AEF, #8F41E9), linear-gradient(60deg, #8F41E9, #578AEF);
+        cursor: pointer;
+        width: 10px;
+        height: 5px;
+        transition: .5s;
+    }
+
+        #progress::-webkit-slider-thumb:hover {
+            border-radius: 30%;
+            width: 15px;
+            height: 15px;
+            cursor: pointer;
+            border: 3px;
+        }
+
+    #progress::-moz-range-thumb {
+        appearance: none;
+        background-image: linear-gradient(to right, #578AEF, #8F41E9), linear-gradient(60deg, #8F41E9, #578AEF);
+        cursor: pointer;
+        width: 10px;
+        height: 5px;
+        transition: .5s;
+    }
+
+        #progress::-moz-range-thumb:hover {
+            border-radius: 30%;
+            width: 15px;
+            height: 15px;
+            cursor: pointer;
+        }
+
+#music {
+    border: 3px ridge #8F41E9;
+    font-family: 微軟正黑體;
+    cursor: pointer;
+}
+
+#music, #info {
+    width: inherit;
+    font-size: 2rem;
+    background-color: #B9B9FF;
+    color: chartreuse;
+    text-align: center;
+    cursor: pointer;
+}
+
+#book {
+    background-color: #B9B9FF;
+    color: #6F00D2;
+    font-family: 微軟正黑體;
+}
+
+    #book > div {
+        color: #6f00d2;
+        border: 3px groove;
+        width: 494px;
+        height: 200px;
+        float: left;
+    }
+
+        #book > div > div {
+            color: #6f00d2;
+            font-size: 1.2rem;
+            border-bottom: 1px solid;
+            padding: 2px;
+        }
+
+    #book > button {
+        font-family: 微軟正黑體;
+        clear: both;
+        width: 100%;
+        background-image: linear-gradient(to right, #578AEF, #8F41E9), linear-gradient(90deg, #8F41E9, #578AEF);
+        font-size: 1.4rem;
+        text-align: center;
+        border: 3px groove white;
+        color: #6f00d2;
+        font-weight: 900;
+        cursor: pointer;
+    }
+
+.hide {
+    display: none;
+}
+
+#marquee {
+    background-color: transparent;
+    white-space: nowrap;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+    #marquee > p {
+        display: inline-block;
+        padding-left: 100%;
+        animation: marquee 15s linear infinite;
+    }
+
+@keyframes marquee {
+    0% {
+        transform: translate(0, 0);
+    }
+
+    100% {
+        transform: translate(-100%, 0);
+    }
+}

@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+
+    <script>
+        //計算1加到100的總和
+        //1.確認題目的需求 2.把需求換成邏輯 3.把邏輯換成程式碼
+        var sum = 0;
+        for (var i = 1; i <= 100; i++) {
+            //sum=sum+i;
+            sum += i;
+            console.log("sum" + sum + ",i=" + i);
+        }
+        document.write(sum);
+        document.write("<hr>");
+        /////////////////////////////////
+        //雞兔同籠
+        //已知雞兔共35隻,雞兔的腳共94支,請問籠子裡雞兔各有幾隻?
+
+        //設雞為x隻, 兔為y隻
+        //x+y=35
+        //2x+4y=94
+
+        
+        
+        for (var x = 0; x <= 35; x++) {
+            for (var y = 0; y <= 35; y++){
+                if (x * 2 + y * 4 == 94 && x + y==35) {
+                    document.write("雞為:" + x + "隻<br>");
+                    document.write("兔子為:" + y + "隻");
+                }
+
+            }
+            
+
+        }
+        /////////////////////////////////
+        //費氏數列
+       
+        document.write("<hr>");
+       var z = prompt("請輸入");
+        var n = 1, m = 1;
+        
+        if (z == 1 || z == 2)    //"z"的值只要為1或2,"r"等於1
+            r = 1;
+
+            //"z"的值只要為1或2,"r"等於1
+        else {
+            for (var i = 1; i <= z - 2; i++) {
+                r = n + m; 
+                n = m;
+                m = r;
+            }
+
+        }
+            
+
+
+
+
+        document.write("第" + z + "個數為"+r);
+        
+
+
+
+
+
+    </script>
+</body>
+</html>

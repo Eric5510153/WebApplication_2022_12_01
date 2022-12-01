@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        #car{
+            margin-left:0;
+        }
+    
+    
+    </style>
+</head>
+<body>
+    <h3 id="t"></h3>
+    X:<input type="text" id="textX" />
+    Y:<input type="text" id="textY" />
+    <hr/>
+    <img src="CAR.png" width="200" id="car"/>
+    <script>
+        var car = document.getElementById("car");
+        var a = 0;
+        function CarMoving() {
+            a += 5;
+            car.style.marginLeft = a + "px";
+            if (car.offsetLeft < 1320)
+                setTimeout(CarMoving, 10);
+        }
+
+        CarMoving();
+
+        function NowTime() {
+            var timer = new Date();
+            t.innerText = timer;         //"innerText"為HTML指定id標籤內容
+            setTimeout(NowTime, 1000);
+
+        }
+
+        NowTime();
+        document.write("<hr>");
+
+
+        function getXY(evt) {
+            textX.value = evt.pageX;
+            textY.value = evt.pageY;
+        }
+        document.addEventListener("mousemove", getXY);
+        
+
+
+
+
+    </script>
+
+
+
+
+</body>
+</html>

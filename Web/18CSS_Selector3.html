@@ -1,0 +1,135 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        #table1 {
+            border: 5px double #000000;
+            box-shadow: 3px 3px 8px #000000;
+            width: 400px;
+            text-align: center;
+        }
+
+        #table1 th, #table1 td {
+                border: 1px solid #000000;
+            }
+
+        td {
+            border: 1px solid #000000;
+        }
+
+        #table1 > tbody > tr:first-child > td:last-child, /* "," 代表"和"*/
+        #table1 > tbody > tr:first-child + tr + tr > td:first-child + td {  /* "+" 代表子節點,依據階層屬性往下做出指定選擇(樹狀圖概念)*/
+        color: #ff0000
+        }
+
+        .sender {
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <!--container 容器-->
+    <table  id="table1">
+        <caption>All Menu</caption>
+        <thead>
+            <tr>
+                <th>No.1</th>
+                <th>No.2</th>
+                <th>No.3</th>
+            </tr>
+        </thead>
+        <tr>
+            <td>A</td>
+            <td>10</td>
+            <td>20</td>
+        </tr>
+        <tr>
+            <td>B</td>
+            <td>10</td>
+            <td>20</td>
+        </tr>
+        <tr>
+            <td>C</td>
+            <td>10</td>
+            <td>20</td>
+        </tr>
+        <tr>
+            <td>D</td>
+            <td>10</td>
+            <td>20</td>
+        </tr>
+        <tfoot>
+            <tr>
+                <td colspan="3" class="sender"><b>Sender:Eric</b></td>
+
+            </tr>
+        </tfoot>
+
+
+
+    </table>
+    <hr />
+    <style>
+        table {
+            border: 5px double #000000;
+            color: #000000;
+            width: 400px;
+            text-align: center;
+        }
+
+        th {
+            border: 1px solid #000000;
+        }
+
+        td {
+            border: 1px solid #000000;
+        }
+
+        .sender {
+            text-align: left;
+        }
+    </style>
+   
+        <table>
+            <caption>All Menu</caption>
+            <thead>
+                <tr>
+                    <th>No.1</th>
+                    <th>No.2</th>
+                    <th>No.3</th>
+                </tr>
+            </thead>
+            <tr>
+                <td>A</td>
+                <td>10</td>
+                <td>20</td>
+            </tr>
+            <tr>
+                <td>B</td>
+                <td>10</td>
+                <td>20</td>
+            </tr>
+            <tr>
+                <td>C</td>
+                <td>10</td>
+                <td>20</td>
+            </tr>
+            <tr>
+                <td>D</td>
+                <td>10</td>
+                <td>20</td>
+            </tr>
+            <tfoot>
+                <tr>
+                    <td colspan="3" class="sender"><b>Sender:Eric</b></td>
+
+                </tr>
+            </tfoot>
+
+
+
+        </table>
+    </body>
+</html>
