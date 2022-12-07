@@ -1,0 +1,41 @@
+﻿
+@{
+    ViewBag.Title = "Razor";
+}
+
+<h2>Razor</h2>
+@{
+    string name = "john";
+    var name2 = "Kevin";
+    int Math = 85, Eng = 95, Chi = 95;
+    bool flag = true;
+
+
+    <h3>@name2</h3>
+
+
+
+}
+<h3>@name</h3>
+<h3>@Math+@Eng+@Chi=@(Math+Eng+Chi)</h3>
+@if (flag)
+{
+
+    <a3>您已登入本系統</a3>
+
+}
+else
+{
+    <a3>您尚未登入本系統</a3>
+}
+@{
+    string[] nm = { "瑞豐夜市", "新堀江商圈", "六合夜市", "凱旋夜市", "花園夜市", "大東夜市", "武聖夜市" };
+}
+
+
+<ul>
+    @foreach (var item in nm)
+    {
+        <li>@item</li>
+    }
+</ul>
