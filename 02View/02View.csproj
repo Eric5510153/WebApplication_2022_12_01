@@ -133,9 +133,11 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Scripts\jquery-1.9.1.min.map" />
-    <Content Include="Views\Home\Create.cshtml" />
+    <Content Include="Views\Home\OLDCreate.cshtml" />
     <Content Include="Views\Home\Display.cshtml" />
     <Content Include="Views\Home\Razor.cshtml" />
+    <Content Include="Views\Home\Create.cshtml" />
+    <Content Include="Views\Home\IndexRWD.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
