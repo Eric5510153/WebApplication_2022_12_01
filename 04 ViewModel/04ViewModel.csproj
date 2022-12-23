@@ -8,12 +8,12 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{BFC78B9E-37BE-4351-B113-DAA32BD875AD}</ProjectGuid>
+    <ProjectGuid>{AECEEE40-9AEF-432C-9336-591F97E6809B}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>_03Model</RootNamespace>
-    <AssemblyName>03Model</AssemblyName>
+    <RootNamespace>_04_ViewModel</RootNamespace>
+    <AssemblyName>04 ViewModel</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
@@ -97,13 +97,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\dbSutdent.mdf" />
-    <Content Include="App_Data\dbSutdent_log.ldf">
-      <DependentUpon>dbSutdent.mdf</DependentUpon>
-    </Content>
-    <Content Include="App_Data\Northwind.mdf" />
-    <Content Include="App_Data\Northwind_log.ldf">
-      <DependentUpon>Northwind.mdf</DependentUpon>
+    <Content Include="App_Data\dbEmployee.mdf" />
+    <Content Include="App_Data\dbEmployee_log.ldf">
+      <DependentUpon>dbEmployee.mdf</DependentUpon>
     </Content>
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -112,25 +108,15 @@
     <Content Include="Content\Site.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Models\dbStudentModel.Context.tt">
+    <Content Include="Models\dbEmployeeModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>dbStudentModel.edmx</DependentUpon>
-      <LastGenOutput>dbStudentModel.Context.cs</LastGenOutput>
+      <LastGenOutput>dbEmployeeModel.Context.cs</LastGenOutput>
+      <DependentUpon>dbEmployeeModel.edmx</DependentUpon>
     </Content>
-    <Content Include="Models\dbStudentModel.tt">
+    <Content Include="Models\dbEmployeeModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>dbStudentModel.edmx</DependentUpon>
-      <LastGenOutput>dbStudentModel.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\NorthwindModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>NorthwindModel.Context.cs</LastGenOutput>
-      <DependentUpon>NorthwindModel.edmx</DependentUpon>
-    </Content>
-    <Content Include="Models\NorthwindModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>NorthwindModel.edmx</DependentUpon>
-      <LastGenOutput>NorthwindModel.cs</LastGenOutput>
+      <DependentUpon>dbEmployeeModel.edmx</DependentUpon>
+      <LastGenOutput>dbEmployeeModel.cs</LastGenOutput>
     </Content>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -156,101 +142,57 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\DefaultController.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\LinqController.cs" />
-    <Compile Include="Controllers\tStudentsController.cs" />
+    <Compile Include="Controllers\tDepartmentsController.cs" />
+    <Compile Include="Controllers\tEmployeesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\dbStudentModel.Context.cs">
+    <Compile Include="Models\dbEmployeeModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>dbStudentModel.Context.tt</DependentUpon>
+      <DependentUpon>dbEmployeeModel.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\dbStudentModel.cs">
+    <Compile Include="Models\dbEmployeeModel.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>dbStudentModel.tt</DependentUpon>
+      <DependentUpon>dbEmployeeModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\dbStudentModel.Designer.cs">
+    <Compile Include="Models\dbEmployeeModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>dbStudentModel.edmx</DependentUpon>
+      <DependentUpon>dbEmployeeModel.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Models\Member.cs" />
-    <Compile Include="Models\NorthwindModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>NorthwindModel.Context.tt</DependentUpon>
+    <Compile Include="Models\tDepartment.cs">
+      <DependentUpon>dbEmployeeModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\NorthwindModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>NorthwindModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\NorthwindModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>NorthwindModel.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Models\tStudent.cs">
-      <DependentUpon>dbStudentModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\供應商.cs">
-      <DependentUpon>NorthwindModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\員工.cs">
-      <DependentUpon>NorthwindModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\客戶.cs">
-      <DependentUpon>NorthwindModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\產品資料.cs">
-      <DependentUpon>NorthwindModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\產品類別.cs">
-      <DependentUpon>NorthwindModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\訂貨主檔.cs">
-      <DependentUpon>NorthwindModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\訂貨明細.cs">
-      <DependentUpon>NorthwindModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\貨運公司.cs">
-      <DependentUpon>NorthwindModel.tt</DependentUpon>
+    <Compile Include="Models\tEmployee.cs">
+      <DependentUpon>dbEmployeeModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\EmpDept.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
-    <EntityDeploy Include="Models\NorthwindModel.edmx">
+    <EntityDeploy Include="Models\dbEmployeeModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>NorthwindModel.Designer.cs</LastGenOutput>
+      <LastGenOutput>dbEmployeeModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\NorthwindModel.edmx.diagram">
-      <DependentUpon>NorthwindModel.edmx</DependentUpon>
-    </Content>
-    <EntityDeploy Include="Models\dbStudentModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>dbStudentModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\dbStudentModel.edmx.diagram">
-      <DependentUpon>dbStudentModel.edmx</DependentUpon>
+    <Content Include="Models\dbEmployeeModel.edmx.diagram">
+      <DependentUpon>dbEmployeeModel.edmx</DependentUpon>
     </Content>
     <None Include="packages.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\tStudents\Create.cshtml" />
-    <Content Include="Views\tStudents\Delete.cshtml" />
-    <Content Include="Views\tStudents\Details.cshtml" />
-    <Content Include="Views\tStudents\Edit.cshtml" />
-    <Content Include="Views\tStudents\Index.cshtml" />
-    <Content Include="Views\Default\Index.cshtml" />
-    <Content Include="Views\Default\Create.cshtml" />
+    <Content Include="Views\tDepartments\Create.cshtml" />
+    <Content Include="Views\tDepartments\Delete.cshtml" />
+    <Content Include="Views\tDepartments\Edit.cshtml" />
+    <Content Include="Views\tDepartments\Index.cshtml" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
+    <Content Include="Views\tEmployees\IndexOld.cshtml" />
+    <Content Include="Views\tEmployees\Index.cshtml" />
+    <Content Include="Views\tEmployees\Create.cshtml" />
+    <Content Include="Views\tEmployees\Edit.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -259,8 +201,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Views\Home\" />
-    <Folder Include="Views\Linq\" />
+    <Folder Include="Views\Default\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
@@ -278,9 +219,9 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>64978</DevelopmentServerPort>
+          <DevelopmentServerPort>54098</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:64978/</IISUrl>
+          <IISUrl>http://localhost:54098/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
