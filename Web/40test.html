@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+
+
+        #container {
+            background-color: #7ecdeb;
+        }
+
+
+        #marquee {
+            color: black;
+            padding-left: 80%;
+            animation: marquee 15s linear infinite;
+        }
+        @keyframes marquee {
+            0% {
+                transform: translate(0, 0);
+            }
+
+            100% {
+                transform: translate(-100%, 10%);
+            }
+        }
+       
+         
+
+                
+            
+       
+    </style>
+
+
+</head>
+<body>
+    <div id="switcher">
+        <span onclick="smaller()">小</span>
+        <span onclick="getDefault()">中</span>
+        <span onclick="larger()">大</span>
+    </div>
+    <div id="container">
+
+    </div>
+
+    <script src="Scripts/jquery-3.6.1.min.js"></script>
+    <script>
+        
+        let item = `<h1 class="text-center" id="marquee">全國農業旅遊休閒園區</h1>`;
+        $('#container').append(item);
+
+        
+    </script>
+</body>
+</html>

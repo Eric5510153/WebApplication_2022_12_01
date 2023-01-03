@@ -109,6 +109,11 @@
     <Content Include="37_hw - all.html" />
     <Content Include="37_hw - 複製 - 複製 - 複製.html" />
     <Content Include="37_hw - 複製 - 複製.html" />
+    <Content Include="39jQuery_First.html" />
+    <Content Include="40jQuery-DOM.html" />
+    <Content Include="40test.html" />
+    <Content Include="41jQuery_API.html" />
+    <Content Include="42test.html" />
     <Content Include="CAR.png" />
     <Content Include="CSS_Selector4 practice.html" />
     <Content Include="2022.10.04 table test.html" />
@@ -162,6 +167,11 @@
     <Content Include="PLAYER_PHOTO\←←.png" />
     <Content Include="PLAYER_PHOTO\→.png" />
     <Content Include="PLAYER_PHOTO\→→.png" />
+    <None Include="Scripts\jquery-3.6.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.6.1.js" />
+    <Content Include="Scripts\jquery-3.6.1.min.js" />
+    <Content Include="Scripts\jquery-3.6.1.slim.js" />
+    <Content Include="Scripts\jquery-3.6.1.slim.min.js" />
     <Content Include="sound\Aftershock %28feat. Jacquie Lee%29.mp3" />
     <Content Include="sound\Back Where I Belong.mp3" />
     <Content Include="sound\Dripice - Escape [Epic Vibes Release].mp3" />
@@ -182,6 +192,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <Content Include="Scripts\jquery-3.6.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.6.1.min.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

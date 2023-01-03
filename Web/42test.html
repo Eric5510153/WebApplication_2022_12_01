@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+
+       img {
+            width: 100%;
+        }
+
+
+    </style>
+</head>
+<body>
+    <table id="table1">
+    </table>
+    <script src="Scripts/jquery-3.6.1.min.js"></script>
+    <script>
+        $.ajax({
+            type: 'get',
+            dataType: "json",
+            url: 'https://data.coa.gov.tw/Service/OpenData/TransService.aspx?UnitId=hjGn8cAQohjz',
+            success: function (data) {
+                for (var item of data) {
+                    document.write(`<div> <h2>${item.County}</h2>
+                                     <div> <img src="${item.FileName}"/></div>
+                                    <h2>${item.Town}</h2> 
+                                     <h2>${item.Vill}</h2>
+                                       <h2> ${item.PhotoDate}</h2></div>`);
+
+
+                }
+            }
+        });
+    </script>
+</body>
+</html>
