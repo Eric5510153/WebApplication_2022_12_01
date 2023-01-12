@@ -1,5 +1,7 @@
+using MCSDD26.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Http;
@@ -13,6 +15,8 @@ namespace MCSDD26
     {
         protected void Application_Start()
         {
+         
+             Database.SetInitializer<MCSDD26Ccontext>(new MCSDD26Initializer());
             AreaRegistration.RegisterAllAreas();
             GlobalConfiguration.Configure(WebApiConfig.Register);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
