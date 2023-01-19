@@ -1,16 +1,18 @@
 ﻿@model _06ADOnet.Models.Customers
 
-@{
-    ViewBag.Title = "Create";
-}
+@*@{
+        ViewBag.Title = "Create";
+    }
 
-<h2>Create</h2>
+    <h2>Create</h2>*@
 
 
-@using (Html.BeginForm()) 
+@*@using (Html.BeginForm())*@
+<form action="@Url.Action("Create")"></form>
+@using (Html.BeginForm("Create", "Customers", FormMethod.Post))
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>Customers</h4>
         <hr />

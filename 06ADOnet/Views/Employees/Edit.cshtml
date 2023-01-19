@@ -1,13 +1,14 @@
 ﻿@model _06ADOnet.Models.Employees
 
-@{
+@*@{
     ViewBag.Title = "Edit";
 }
 
-<h2>Edit</h2>
+<h2>Edit</h2>*@
+<form action="@Url.Action("Edit")"></form>
+@using (Html.BeginForm("Edit", "Employees", FormMethod.Post))
 
-
-@using (Html.BeginForm())
+@*@using (Html.BeginForm())*@
 {
     @Html.AntiForgeryToken()
     
