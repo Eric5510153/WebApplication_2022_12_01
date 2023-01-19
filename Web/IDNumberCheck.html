@@ -1,0 +1,113 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <form name="chkform" action="javascript:checkid(document.chkform.id.value)">
+        <table align="center" width="200" border="1" cellspacing="1" cellpadding="1" bgcolor="#99CCFF" bordercolor="#FFFFFF">
+            <tbody>
+                <tr>
+                    <td nowrap=""><font color="#0000ff">身分證字號：</font></td>
+                    <td><input name="id" size="15" maxlength="10" style="color:#ff0000;background-color:#FFF9CA;border:1px solid black"></td>
+                </tr>
+                <tr>
+                    <td colspan="2" align="center"><input type="submit" value="輸入確認" style="height:22px;background-color:#FFCCAA;border:1px solid black"> <input type="reset" value="清除重寫" style="height:22px;background-color:#FFCCAA;border:1px solid black"></td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+
+
+
+
+    <script>
+
+
+        var local = new Array(34)
+        local[10] = 'A'
+        local[11] = 'B'
+        local[12] = 'C'
+        local[13] = 'D'
+        local[14] = 'E'
+        local[15] = 'F'
+        local[16] = 'G'
+        local[17] = 'H'
+        local[34] = 'I'
+        local[18] = 'J'
+        local[19] = 'K'
+        local[20] = 'L'
+        local[21] = 'M'
+        local[22] = 'N'
+        local[35] = 'O'
+        local[23] = 'P'
+        local[24] = 'Q'
+        local[25] = 'R'
+        local[26] = 'S'
+        local[27] = 'T'
+        local[28] = 'U'
+        local[29] = 'V'
+        local[32] = 'W'
+        local[30] = 'X'
+        local[31] = 'Y'
+        local[33] = 'Z'
+
+        function checkid(id) {
+            id = id.toUpperCase()
+            if (lengtherr(id)) alert("輸入的長度有誤!");
+            else if (firstlettererr(id)) alert("身分證第一碼應無此英文字母:" + id.substring(0, 1));
+            else if (numerr(id)) alert("身分證後九碼應為數字!!");
+            else if (checkerr(id)) alert("身分證檢查碼有誤!");
+            else alert("您輸入的身分證字號完全正確!");
+            document.chkform.id.focus();
+        }
+
+        function lengtherr(id) {
+            if (id.length < 10)
+                return 1;
+            else
+                return 0;
+        }
+
+        function firstlettererr(id) {
+            var fl = id.substring(0, 1);
+            if (fl >= 'A' && fl <= 'Z') return 0;
+            else return 1;
+        }
+
+        function numerr(id) {
+            var haserr = 0;
+            for (i = 1; i <= 9; i++) {
+                if (id.substring(i, i + 1) >= '0' && id.substring(i, i + 1) <= '9') continue;
+                else return 1;
+            }
+            return 0;
+        }
+
+        function checkerr(id) {
+            var se = new Array(10)
+            var we = 0
+            var checkcode = 0
+            for (i = 10; i <= 33; i++) {
+                if (local[i] == id.substring(0, 1)) {
+                    se[0] = parseInt((i + '0').substring(0, 1))
+                    se[1] = parseInt((i + '0').substring(1, 2))
+                    break
+                }
+            }
+            for (i = 1; i <= 9; i++) {
+                se[i + 1] = parseInt(id.substring(i, i + 1))
+            }
+            checkcode = (se[0] * 1 + se[1] * 9 + se[2] * 8 + se[3] * 7 + se[4] * 6 + se[5] * 5 + se[6] * 4 + se[7] * 3 + se[8] * 2 + se[9] * 1 + se[10] * 1) % 10
+            if (checkcode == 0)
+                return 0
+            else
+                return 1
+        }
+
+
+
+    </script>
+</body>
+</html>

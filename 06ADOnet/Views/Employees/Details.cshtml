@@ -1,0 +1,75 @@
+﻿@model _06ADOnet.Models.Employees
+
+@*@{
+        ViewBag.Title = "Details";
+    }*@
+@{
+    Layout = "";
+}
+@*<style>
+    #editEmployees {
+        display: none;
+    }*@
+</style>
+@*<h2>Employees Details</h2>
+    <hr/>*@
+<div class="">
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <h4>@Model.TitleOfCourtesy @Model.FirstName @Model.LastName </h4>
+        </div>
+        <div class="panel-body row">
+            <div class="col-xs-5">
+                @*@Html.DisplayFor(model => model.Photo)*@
+                <img src="@Url.Action("GetEmployeePhoto",new {id=Model.EmployeeID})" />
+            </div>
+            <div class="col-xs-7">
+
+                <h4>@Model.Title</h4>
+                <p>@Html.DisplayNameFor(model => model.BirthDate) @Html.DisplayFor(model => model.BirthDate)</p>
+                <p>@Html.DisplayNameFor(model => model.HireDate) @Html.DisplayFor(model => model.HireDate)</p>
+                <p>
+                    @Html.DisplayNameFor(model => model.Address):
+                    @Html.DisplayFor(model => model.Address)
+                    @Html.DisplayFor(model => model.City)
+                    @Html.DisplayFor(model => model.PostalCode)
+                    @Html.DisplayFor(model => model.Country)
+                </p>
+                <p>
+                    @Html.DisplayNameFor(model => model.HomePhone): @Html.DisplayFor(model => model.HomePhone)
+                    &nbsp &nbsp Extension:@Model.Extension
+                </p>
+                <p>
+                    @*@Html.DisplayNameFor(model => model.Fax): @Html.DisplayFor(model => model.Fax)*@
+                </p>
+            </div>
+            <div class="col-xs-12">
+                <p>@Html.Raw(Model.Notes.ToString().Replace("\r\n", "<br>"))</p>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+<p>
+
+    <button class="btn btn-warning" id="showAddForm"><span class="glyphicon glyphicon-edit"></span>&nbsp Edit</button>
+
+    <div class="well" id="editEmployees">
+        @Html.Action("Edit")
+    </div>
+    @*@Html.ActionLink("Edit", "Edit", new { id = Model.EmployeeID }) |*@
+    @* @Html.ActionLink("Back to List", "Index")*@
+</p>
+<script>
+
+
+    //$(function () {
+    //    $('[data-toggle="tooltip"]').tooltip()
+    //})
+    $('#showAddForm').click(function () {
+
+        $('#editEmployees').fadeToggle(800);
+    });
+
+</script>

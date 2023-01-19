@@ -1,0 +1,66 @@
+﻿@model IEnumerable<_06ADOnet.Models.Shippers>
+
+@{
+    ViewBag.Title = "Shippers List";
+}
+@section css{
+
+    <style>
+        #addShippers {
+            display: none;
+        }
+    </style>
+
+}
+<h2>Shippers List</h2>
+
+<p>
+    <button class="btn btn-success" id="showAddForm"><span class="glyphicon glyphicon-plus"></span>Create New</button>
+    @*@Html.ActionLink("Create New", "Create")*@
+</p>
+<div class="well" id="addShippers">
+    @Html.Action("Create")
+</div>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CompanyName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Phone)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CompanyName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Phone)
+            </td>
+            <td>
+                @Html.ActionLink(" Edit", "Edit", new { id = item.ShipperID }, new { @class = "btn btn-warning glyphicon glyphicon-edit" })
+                @Html.ActionLink(" Details", "Details", new { id = item.ShipperID }, new { @class = "btn btn-info glyphicon glyphicon-list" })
+                @Html.ActionLink(" Delete", "Delete", new { id = item.ShipperID }, new { @class = "btn btn-danger glyphicon glyphicon-trash" })
+            </td>
+        </tr>
+    }
+
+</table>
+@section scripts{
+    <script>
+    
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+        $('#showAddForm').click(function () {
+
+            $('#addShippers').fadeToggle(500);
+        });
+
+    </script>
+}
