@@ -146,9 +146,9 @@
                     @Html.DisplayFor(modelItem => item.Employees2.LastName)
                 </td>*@
         <td>
-            @*@Html.ActionLink("Edit", "Edit", new { id = item.EmployeeID }) |
-        @Html.ActionLink("Details", "Details", new { id = item.EmployeeID }) |
-            *@
+            @Html.ActionLink("Edit", "Edit", new { id = item.EmployeeID }) |
+        @*@Html.ActionLink("Details", "Details", new { id = item.EmployeeID }) |*@
+            
             <button type="button" id="@item.EmployeeID" class="btn btn-primary glyphicon glyphicon-list" data-toggle="modal" data-target="#ShowDetailModal" onclick="getDetailData(event)">&nbsp;Details</button>
            
                 @Html.ActionLink(" Delete", "Delete", new { id = item.EmployeeID }, new { @class = "btn btn-danger glyphicon glyphicon-trash" })

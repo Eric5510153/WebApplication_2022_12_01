@@ -81,8 +81,24 @@ namespace _06ADOnet.Controllers
             return View(employees);
         }
 
-        // GET: Employees/Edit/5
         public ActionResult Edit(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Employees employees = db.Employees.Find(id);
+            if (employees == null)
+            {
+                return HttpNotFound();
+            }
+            ViewBag.ReportsTo = new SelectList(db.Employees, "EmployeeID", "LastName", employees.ReportsTo);
+            return PartialView(employees);
+        }
+
+
+        // GET: Employees/Edit/5
+        public ActionResult _Edit(int? id)
         {
             if (id == null)
             {

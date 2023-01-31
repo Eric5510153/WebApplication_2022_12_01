@@ -27,12 +27,14 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
+                    @if (Session["emp"] != null)
+                    {
                     <li>@Html.ActionLink("Customers", "Index", "Customers")</li>
                     <li>@Html.ActionLink("Employees", "Index", "Employees")</li>
                     <li>@Html.ActionLink("Products", "Index", "Products")</li>
                     <li>@Html.ActionLink("Products Categories", "Index", "Categories")</li>
                     <li>@Html.ActionLink("Shippers", "Index", "Shippers")</li>
-
+                    }
                 </ul>
             </div>
         </div>
