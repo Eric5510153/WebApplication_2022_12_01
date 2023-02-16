@@ -10,6 +10,19 @@
         .table-hover > tbody > tr:hover {
             background-color: #ff6a00;
         }
+        .table-hover_2 > tbody > tr:hover {
+            background-color: #c6fffc;
+        }
+        .table-hover_3 > tbody > tr:hover {
+            background-color: #c0efba;
+        }
+        .table-hover_4 > tbody > tr:hover {
+            background-color: #f5fbc1;
+        }
+        .table-hover_5 > tbody > tr:hover {
+            background-color: #afb6ff;
+        }
+
     </style>
     @RenderSection("css", false)
     <script src="~/Scripts/modernizr-2.8.3.js"></script>
@@ -29,14 +42,25 @@
                 <ul class="nav navbar-nav">
                     @if (Session["emp"] != null)
                     {
-                    <li>@Html.ActionLink("Customers", "Index", "Customers")</li>
-                    <li>@Html.ActionLink("Employees", "Index", "Employees")</li>
-                    <li>@Html.ActionLink("Products", "Index", "Products")</li>
-                    <li>@Html.ActionLink("Products Categories", "Index", "Categories")</li>
-                    <li>@Html.ActionLink("Shippers", "Index", "Shippers")</li>
+                        <li>@Html.ActionLink("Customers", "Index", "Customers")</li>
+                        <li>@Html.ActionLink("Employees", "Index", "Employees")</li>
+                        <li>@Html.ActionLink("Products", "Index", "Products")</li>
+                        <li>@Html.ActionLink("Products Categories", "Index", "Categories")</li>
+                        <li>@Html.ActionLink("Shippers", "Index", "Shippers")</li>
+                        <li>@Html.ActionLink("Orders", "Index", "Orders")</li>
                     }
                 </ul>
-            </div>
+
+                @if (Session["emp"] != null)
+                {
+                    <div align="right">@Html.ActionLink(" Logout", "Logout", "Login", null, new { @class = "btn btn-danger glyphicon glyphicon-log-out" })</div>
+                    
+                }
+                @if (Session["emp"] == null)
+                {
+                    <div align="right">@Html.ActionLink(" Login", "Login", "Login", null, new { @class = "btn btn-primary glyphicon glyphicon-log-in" })</div>
+                }
+            </div> 
         </div>
     </div>
 

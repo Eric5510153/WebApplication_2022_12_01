@@ -5,10 +5,16 @@
     }*@
 @{
     Layout = "";
+    <style>
+        #editEmployees {
+            display: none;
+        }
+    </style>
 }
 
-<h2>Employees Details</h2>
-    <hr/>
+
+@*<h2>Employees Details</h2>*@
+<hr />
 <div class="">
     <div class="panel panel-info">
         <div class="panel-heading">
@@ -47,16 +53,21 @@
 
     </div>
 </div>
+<button class="btn btn-warning" id="showEditEmployees"><span class="glyphicon glyphicon-edit"></span>&nbsp Edit</button>
+
 <p>
 
-    <button class="btn btn-warning" id="showAddForm"><span class="glyphicon glyphicon-edit"></span>&nbsp Edit</button>
+    @* <button class="btn btn-warning" id="showAddForm"><span class="glyphicon glyphicon-edit"></span>&nbsp Edit</button>
 
-    @*<div class="well" id="editEmployees">
-        @Html.Action("Edit")
-    </div>*@
+        <div class="well" id="editEmployees">
+               @Html.Action("_Edit")
+           </div>*@
     @*@Html.ActionLink("Edit", "Edit", new { id = Model.EmployeeID }) |
-     @Html.ActionLink("Back to List", "Index")*@
+        @Html.ActionLink("Back to List", "Index")*@
 </p>
+<div class="well" id="editEmployees">
+    @Html.Action("_Edit")
+</div>
 <script>
 
 
@@ -65,7 +76,7 @@
     //})
 
 
-    $('#showAddForm').click(function () {
+    $('#showEditEmployees').click(function () {
 
         $('#editEmployees').fadeToggle(800);
     });

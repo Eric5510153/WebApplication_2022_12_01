@@ -1,0 +1,75 @@
+﻿@model _06ADOnet.Models.Employees
+
+@{
+    Layout = "";
+    <style>
+        #editEmployees {
+            display: none;
+        }
+    </style>
+}
+
+
+<div class="">
+
+    <div class="panel panel-info">
+
+        <div class="panel-heading">
+            <h3> @Model.TitleOfCourtesy @Model.FirstName @Model.LastName</h3>
+        </div>
+
+
+        <div class="panel-body row">
+            <div class="col-xs-5 text-center">
+                @*@Html.DisplayFor(model=>model.Photo)*@
+                @* 單純存屬性值用url *@
+                <img src="@Url.Action("GetEmployeePhoto",new { id = Model.EmployeeID })">
+                @*<img src="@Html.Action("GetEmployeePhoto",new { id = Model.EmployeeID })">*@
+            </div>
+            <div class="col-xs-7">
+                <h4> @Model.Title</h4>
+                @* 如果要更改日期格式要在model修 *@
+                <p>@Html.DisplayNameFor(model => model.BirthDate)： @Html.DisplayFor(model => model.BirthDate)</p>
+                <p>@Html.DisplayNameFor(model => model.HireDate)： @Html.DisplayFor(model => model.HireDate)</p>
+
+                <p>
+                    @Html.DisplayNameFor(model => model.Address)：
+                    @Html.DisplayFor(model => model.Address)
+                    @Html.DisplayFor(model => model.City)
+                    @Html.DisplayFor(model => model.PostalCode)
+                    @Html.DisplayFor(model => model.Country)
+                </p>
+                <p>
+                    @Html.DisplayNameFor(model => model.HomePhone)：
+                    @Html.DisplayFor(model => model.HomePhone)Extension	@Model.Extension
+                </p>
+                <p>
+                    @*@Html.DisplayNameFor(model => model.Fax)：
+                        @Html.DisplayFor(model => model.Fax)*@
+                </p>
+            </div>
+            <div class="col-xs-12" style="margin-top:10px;">
+                @*@Html.DisplayFor(model=>model.Notes)*@
+                @* 檢查文字內容是否含有斷行(打字時按enter會以\r\n存入，但html只讀<br>)，先把讀出來的內容轉成字串，再以replace改寫 *@
+                @*<p>@Html.Raw(Model.Notes.ToString().Replace("\r\n", "<br>"))</p>*@
+
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<button class="btn btn-warning" id="showEditEmployees"><span class="glyphicon glyphicon-edit"></span>&nbsp Edit</button>
+<p class="text-center">
+
+    
+</p>
+<div class="well" id="editEmployees">
+    @Html.Action("_Edit")
+</div>
+<script>
+    $('#showEditEmployees').click(function () {
+        $('#editEmployees').fadeToggle(300);
+    })
+</script>

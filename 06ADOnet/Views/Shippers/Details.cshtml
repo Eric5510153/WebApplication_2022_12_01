@@ -1,34 +1,47 @@
 ﻿@model _06ADOnet.Models.Shippers
 
 @{
-    ViewBag.Title = "Details";
+    //ViewBag.Title = "Details";
+    Layout = "";
+    <style>
+        #editShippers {
+            display: none;
+        }
+    </style>
 }
 
-<h2>Details</h2>
+@*<h2>Details</h2>*@
+<hr />
+<div class="">
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <h4>@Html.DisplayFor(model => model.CompanyName)</h4>
+            </div>
+            <hr />
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Phone)
+                </dt>
 
-<div>
-    <h4>Shippers</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.CompanyName)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Phone)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.CompanyName)
-        </dd>
+            </dl>
+        </div>
+    </div>
+    <button class="btn btn-warning" id="showEditShippers"><span class="glyphicon glyphicon-edit"></span>&nbsp Edit</button>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Phone)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Phone)
-        </dd>
-
-    </dl>
+    <p>
+            @*@Html.ActionLink("Edit", "Edit", new { id = Model.ShipperID }) |
+            @Html.ActionLink("Back to List", "Index")*@
+    </p>
+<div class="well" id="editShippers">
+    @Html.Action("_Edit")
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ShipperID }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+<script>
+    $('#showEditShippers').click(function () {
+
+        $('#editShippers').fadeToggle(500);
+    });
+</script>

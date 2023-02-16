@@ -1,0 +1,69 @@
+﻿@model IEnumerable<TIDIP_ADO_NET.Models.Rescues>
+
+@{
+    ViewBag.Title = "緊急救護單位資訊";
+}
+
+<h2>緊急救護單位資訊</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            緊急救護單位名稱
+
+        </th>
+        <th>
+            縣市
+
+        </th>
+        <th>
+            鄉、鎮、市、區
+
+        </th>
+        <th>
+            地址
+
+        </th>
+        <th>
+            電話
+
+        </th>
+        <th>
+            資訊建立時間
+
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.RescueName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.County_City)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Area)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RescueAddress)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RescueCreatedDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RescueTel)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.RescueId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.RescueId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.RescueId })
+        </td>
+    </tr>
+}
+
+</table>

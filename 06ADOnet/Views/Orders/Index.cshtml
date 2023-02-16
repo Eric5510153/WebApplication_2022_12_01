@@ -1,0 +1,57 @@
+﻿@using System.Data;
+@model System.Data.DataTable
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Orders List</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <td>@Model.Columns[0].ColumnName</td>
+            <td>@Model.Columns[3].ColumnName</td>
+            <td>@Model.Columns[8].ColumnName</td>
+            <td>Ordering Person</td>
+            
+        </tr>
+        </thead>
+    <tbody>
+
+        @foreach (DataRow row in Model.Rows)
+        {
+            <tr>
+                <td>@row["OrderID"]</td>
+                <td>@Convert.ToDateTime(row["OrderDate"]).ToShortDateString()</td>
+                <td>@row["Recipient Name"]</td>
+                <td>@row["CompanyName"]</td>
+                @*<td>
+            <a href="#" class="btn btn-primary glyphicon glyphicon-list">&nbsp;Details</a>
+        </td>*@
+                <td>@Html.ActionLink(" Details", "Display", new { id = row["OrderID"] }, new { @class = "btn btn-primary glyphicon glyphicon-list" })</td>
+                
+            </tr>
+
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </tbody>
+</table>
+
+

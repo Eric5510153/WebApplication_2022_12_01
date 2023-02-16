@@ -12,7 +12,7 @@ namespace _05Cust.Models
     public int ID { get; set; }
         [Required]
         [StringLength(10)]
-        [RegularExpression("[A-Z][12][0-9]{8}",ErrorMessage ="身份證格式錯誤")]
+        [RegularExpression("[A-Z][12][0-9]{8}",ErrorMessage ="身份證格式錯誤")] 
         [CheckIDNumber]
         public string IDNumber { get; set; }
         [Required(ErrorMessage = "身份證為必填欄位")]

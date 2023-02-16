@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -35,6 +36,26 @@ namespace _06ADOnet.Controllers
             return View(categories);
         }
 
+        public ActionResult GetCategoryPhoto(int? id)
+        {
+            //if (id == null)
+            //{ 
+
+            //return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+
+            //}
+
+            Categories categories = db.Categories.Find(id);
+
+            byte[] photo = categories.Picture.Skip(78).ToArray();
+            MemoryStream ms = new MemoryStream(photo);
+
+            return File(photo, "image/bmp");
+
+        }
+
+
+
         // GET: Categories/Create
         public ActionResult Create()
         {
@@ -59,7 +80,7 @@ namespace _06ADOnet.Controllers
         }
 
         // GET: Categories/Edit/5
-        public ActionResult Edit(int? id)
+        public ActionResult _Edit(int? id)
         {
             if (id == null)
             {
@@ -70,7 +91,7 @@ namespace _06ADOnet.Controllers
             {
                 return HttpNotFound();
             }
-            return View(categories);
+            return PartialView(categories);
         }
 
         // POST: Categories/Edit/5

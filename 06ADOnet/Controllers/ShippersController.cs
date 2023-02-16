@@ -59,7 +59,7 @@ namespace _06ADOnet.Controllers
         }
 
         // GET: Shippers/Edit/5
-        public ActionResult Edit(int? id)
+        public ActionResult _Edit(int? id)
         {
             if (id == null)
             {
@@ -70,7 +70,7 @@ namespace _06ADOnet.Controllers
             {
                 return HttpNotFound();
             }
-            return View(shippers);
+            return PartialView(shippers);
         }
 
         // POST: Shippers/Edit/5

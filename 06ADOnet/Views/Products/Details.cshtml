@@ -1,14 +1,26 @@
 ﻿@model _06ADOnet.Models.Products
 
 @{
-    ViewBag.Title = "Details";
+    //ViewBag.Title = "Details";
+
+    Layout = "";
+
+    <style>
+        #editProducts {
+            display: none;
+        }
+    </style>
+
 }
 
-<h2>Details</h2>
+@*<h2>Details</h2>*@
 
-<div>
-    <h4>Products</h4>
-    <hr />
+<div class="panel panel-info">
+    <div class="panel-heading">
+        <h3> @Html.DisplayFor(model => model.ProductName)</h3>
+    </div>
+    @*<h4>Products</h4>
+        <hr />*@
     <dl class="dl-horizontal">
         <dt>
             @Html.DisplayNameFor(model => model.ProductName)
@@ -84,7 +96,25 @@
 
     </dl>
 </div>
+<button class="btn btn-warning" id="showEditProducts"><span class="glyphicon glyphicon-edit"></span>&nbsp Edit</button>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ProductID }) |
-    @Html.ActionLink("Back to List", "Index")
+    @*@Html.ActionLink("Edit", "Edit", new { id = Model.ProductID }) |
+        @Html.ActionLink("Back to List", "Index")*@
 </p>
+<div class="well" id="editProducts">
+    @Html.Action("_Edit")
+</div>
+<script>
+
+
+    //$(function () {
+    //    $('[data-toggle="tooltip"]').tooltip()
+    //})
+
+
+    $('#showEditProducts').click(function () {
+
+        $('#editProducts').fadeToggle(500);
+    });
+
+</script>

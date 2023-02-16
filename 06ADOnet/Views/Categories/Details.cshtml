@@ -1,12 +1,46 @@
 ﻿@model _06ADOnet.Models.Categories
 
 @{
-    ViewBag.Title = "Details";
+    //ViewBag.Title = "Details";
+    Layout = "";
+
+    <style>
+        #editCategories {
+            display: none;
+        }
+
+    </style>
+
+
 }
 
-<h2>Details</h2>
+@*<h2>Details</h2>*@
+<hr/>
+<div class="">
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <h4>@Model.CategoryName</h4>
+        </div>
+        <div class="panel-body row">
+            <div class="col-xs-5">
+                <img src="@Url.Action("GetCategoryPhoto",new {id=Model.CategoryID})" />
+            </div>
+            <div>
+                <h4>@Html.DisplayFor(Model=>Model.CategoryName)</h4>
+                <p> @Html.DisplayFor(model => model.Description)</p>
+                
 
-<div>
+            </div>
+        </div>
+
+
+    </div>
+
+
+</div>
+<button class="btn btn-warning" id="showEditCategories"><span class="glyphicon glyphicon-edit"></span>&nbsp Edit</button>
+
+@*<div>
     <h4>Categories</h4>
     <hr />
     <dl class="dl-horizontal">
@@ -35,8 +69,17 @@
         </dd>
 
     </dl>
-</div>
+</div>*@
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.CategoryID }) |
-    @Html.ActionLink("Back to List", "Index")
+    @*@Html.ActionLink("Edit", "Edit", new { id = Model.CategoryID }) |
+    @Html.ActionLink("Back to List", "Index")*@
 </p>
+<div class="well" id="editCategories">
+    @Html.Action("_Edit")
+</div>
+<script>
+    $('#showEditCategories').click(function () {
+
+        $('#editCategories').fadeToggle(500);
+    });
+</script>

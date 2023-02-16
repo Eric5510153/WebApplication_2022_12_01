@@ -1,0 +1,94 @@
+﻿@using System.Data;
+@model System.Data.DataTable
+
+
+@{
+    ViewBag.Title = "Orders Details";
+}
+@foreach (DataRow row in Model.Rows)
+{
+
+
+    <h2>Orders Details</h2>
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <h2 class="text-center">Orders Details</h2>
+
+
+
+        </div>
+        <div class="panel-body">
+            <table>
+                <tr>
+                    <td>OrderID</td>
+
+                    <td>@row["OrderID"]</td>
+                    <td>Client</td>
+
+                    <td>@row["CompanyName"] (@row["CustomerID"])</td>
+                </tr>
+                <tr>
+                    <td>Order Date</td>
+
+                    <td>@row["OrderDate"]</td>
+                    <td>Contact</td>
+
+                    <td>@row["ContactName"] @row["ContactTitle"]</td>
+                </tr>
+                <tr>
+                    <td>Required Date</td>
+
+                    <td>@row["RequiredDate"]</td>
+                    <td>Employee</td>
+
+                    <td>@row["LastName"] @row["FirstName"] (@row["EmployeeID"])</td>
+                </tr>
+                <tr>
+                    <td>Recipient Name</td>
+
+                    <td>@row["ShipName"]</td>
+
+                    <td>Shipping Fee</td>
+
+                    <td>@row["Freight"]</td>
+                </tr>
+                <tr>
+                    <td>Recipient Address</td>
+
+                    <td colspan="3">@row["ShipAddress"]</td>
+
+                </tr>
+                <tr>
+                    <td>Shipping Company</td>
+
+                    <td>@row["CompanyName"]</td>
+                    <td>Shipping Phone</td>
+
+                    <td>@row["Phone"]</td>
+                </tr>
+                <tr>
+                    <td>Shipping Date</td>
+                    <td colspan="3"><strong>@Convert.ToDateTime(row["ShippedDate"]).ToShortDateString()</strong></td>
+
+                </tr>
+            </table>
+
+            <hr />
+            <h3 class="text-center">Details</h3>
+            <hr />
+            @Html.Action("_DisplayDetail")
+
+
+
+
+        </div>
+    </div>
+}
+@section css{
+    <style>
+
+        .table > tbody > tr > td {
+            border-top: none;
+        }
+    </style>
+}

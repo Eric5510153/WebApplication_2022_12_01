@@ -1,14 +1,7 @@
 ﻿@model _06ADOnet.Models.Employees
 
-@*@{
-    ViewBag.Title = "Edit";
-}
 
-<h2>Edit</h2>*@
-<form action="@Url.Action("_Edit")"></form>
-@using (Html.BeginForm("_Edit", "Employees", FormMethod.Post))
-
-@*@using (Html.BeginForm())*@
+@using (Html.BeginForm("Edit","Employees",FormMethod.Post))
 {
     @Html.AntiForgeryToken()
     
@@ -156,15 +149,15 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
+                <button class="btn btn-warning" id="showEditEmployees"><span class="glyphicon glyphicon-saved"></span>&nbsp Save</button>
             </div>
         </div>
     </div>
 }
 
-<div>
+@*<div>
     @Html.ActionLink("Back to List", "Index")
-</div>
+</div>*@
 
 <script src="~/Scripts/jquery-3.4.1.min.js"></script>
 <script src="~/Scripts/jquery.validate.min.js"></script>

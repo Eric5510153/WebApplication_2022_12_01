@@ -1,40 +1,53 @@
 ﻿@model _06ADOnet.Models.Customers
 
+@*@{
+        ViewBag.Title = "Customers Details";
+    }*@
+
 @{
-    ViewBag.Title = "客戶詳細資料";
+    Layout = "";
+
+    <style>
+        #editCustomers {
+            display: none;
+        }
+    </style>
 }
 
-<h2>客戶詳細資料</h2>
 
-<div>
-    <h4>@Html.DisplayFor(model => model.ContactName)</h4>
-    <hr />
+
+@*<h2>Customers Details</h2>*@
+<hr />
+
+<div class="">
+    @*<h4>@Html.DisplayFor(model => model.ContactName)</h4>
+        <hr />*@
     <div class="panel panel-info">
         @*<dt>
-            @Html.DisplayNameFor(model => model.CompanyName)
-        </dt>*@
+                @Html.DisplayNameFor(model => model.CompanyName)
+            </dt>*@
 
         <div class="panel-heading">
-           <h3> @Html.DisplayFor(model => model.CompanyName)</h3>
+            <h3> @Html.DisplayFor(model => model.CompanyName)</h3>
         </div>
 
         @*<dt>
-            @Html.DisplayNameFor(model => model.ContactName)
-        </dt>*@
+                @Html.DisplayNameFor(model => model.ContactName)
+            </dt>*@
 
-    <div class="panel-body">
-       <strong> @Html.DisplayFor(model => model.ContactName)</strong> |
-        @Html.DisplayFor(model => model.ContactTitle)
-    </div>
+        <div class="panel-body">
+            <strong> @Html.DisplayFor(model => model.ContactName)</strong> |
+            @Html.DisplayFor(model => model.ContactTitle)
+        </div>
 
         @*<dt>
-            @Html.DisplayNameFor(model => model.ContactTitle)
-        </dt>*@
+                @Html.DisplayNameFor(model => model.ContactTitle)
+            </dt>*@
 
         @*<div class="">
-            @Html.DisplayFor(model => model.ContactTitle)
-        </div>*@
-        <hr/>
+                @Html.DisplayFor(model => model.ContactTitle)
+            </div>*@
+        <hr />
         <div class="panel-footer">
             <p>
                 @Html.DisplayNameFor(model => model.Address):
@@ -51,66 +64,86 @@
                 @Html.DisplayNameFor(model => model.Fax):
                 @Html.DisplayFor(model => model.Fax)
 
-                </p>
+            </p>
 
 
         </div>
 
         @*<dd>
-            @Html.DisplayFor(model => model.Address)
-        </dd>
+                @Html.DisplayFor(model => model.Address)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.City)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.City)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.City)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.City)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Region)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.Region)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Region)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Region)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.PostalCode)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.PostalCode)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.PostalCode)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.PostalCode)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Country)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.Country)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Country)
-        </dd>*@
+            <dd>
+                @Html.DisplayFor(model => model.Country)
+            </dd>*@
 
         @*<dt>
-            @Html.DisplayNameFor(model => model.Phone)
-        </dt>
+                @Html.DisplayNameFor(model => model.Phone)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Phone)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Phone)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Fax)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.Fax)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Fax)
-        </dd>*@
+            <dd>
+                @Html.DisplayFor(model => model.Fax)
+            </dd>*@
 
     </div>
 </div>
+<button class="btn btn-warning" id="showEditCustomers"><span class="glyphicon glyphicon-edit"></span>&nbsp Edit</button>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.CustomerID }) |
-    @Html.ActionLink("Back to List", "Index")
+
+    @*@Html.ActionLink("Edit", "Edit", new { id = Model.CustomerID }) |*@
+    @*@Html.ActionLink("Back to List", "Index")*@
 </p>
+<div class="well" id="editCustomers">
+    @Html.Action("_Edit")
+</div>
+<script>
+
+
+    //$(function () {
+    //    $('[data-toggle="tooltip"]').tooltip()
+    //})
+
+
+    $('#showEditCustomers').click(function () {
+
+        $('#editCustomers').fadeToggle(800);
+    });
+
+</script>
+

@@ -59,7 +59,7 @@ namespace _06ADOnet.Controllers
         }
 
         // GET: Customers/Edit/5
-        public ActionResult Edit(string id)
+        public ActionResult _Edit(string id)
         {
             if (id == null)
             {
@@ -70,9 +70,11 @@ namespace _06ADOnet.Controllers
             {
                 return HttpNotFound();
             }
+            
             return View(customers);
         }
-
+        
+       
         // POST: Customers/Edit/5
         // 若要避免過量張貼攻擊，請啟用您要繫結的特定屬性。
         // 如需詳細資料，請參閱 https://go.microsoft.com/fwlink/?LinkId=317598。
