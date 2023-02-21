@@ -3,12 +3,31 @@
 @{
     ViewBag.Title = "警察單位資訊";
 }
+@section css{
 
+    <style>
+        #addPolice {
+            display: none;
+        }
+    </style>
+
+}
 <h2>警察單位資訊</h2>
 
+
 <p>
-    @Html.ActionLink("Create New", "Create")
+    <button class="btn btn-success" id="showAddForm">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z" />
+        </svg>&nbsp 建立資訊&nbsp(管理員)
+    </button>
 </p>
+<div class="well" id="addPolice">
+    @Html.Action("Create")
+</div>
+@*<p>
+        @Html.ActionLink("Create New", "Create")
+    </p>*@
 <table class="table">
     <tr>
         <th>
@@ -38,33 +57,49 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.PoliceName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.County_City)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Area)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PoliceAddress)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PoliceTel)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PoliceCreatedDate)
-        </td>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.PoliceName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.County_City)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Area)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PoliceAddress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PoliceTel)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PoliceCreatedDate)
+            </td>
 
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id = item.PoliceID }) |
-            @Html.ActionLink("Details", "Details", new { id = item.PoliceID }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.PoliceID })
-        </td>
-    </tr>
-}
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.PoliceID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.PoliceID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.PoliceID })
+            </td>
+        </tr>
+    }
 
 </table>
+@section scripts{
+    <script>
+
+
+
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+        $('#showAddForm').click(function () {
+
+            $('#addPolice').fadeToggle(800);
+        });
+
+    </script>
+}

@@ -5,79 +5,98 @@
     ViewBag.Title = "Details";
 }
 
-<h2>事故詳細</h2>
+<style>
+    #nameStyle > span
+    {
+        font-weight:bold;
+        font-size:1.2rem;
 
-<div>
-  
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.DALocation)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.DALocation)
-        </dd>
+    }
 
-        <dt>
-            @Html.DisplayNameFor(model => model.County_City)
-        </dt>
+</style>
+<div class="text-center">
+    <span style="font-weight:bold; font-size:2.0rem;" class="text-center">災害事故詳細內容</span>
+    </div>
+        <div>
 
-        <dd>
-            @Html.DisplayFor(model => model.County_City)
-        </dd>
+            <hr />
+            <div class="dl-horizontal " id="nameStyle">
+                <span>
+                    @*@Html.DisplayNameFor(model => model.DALocation)*@
+                    災害事故位置
+                </span>
+                <p>
+                    @Html.DisplayFor(model => model.DALocation)
+                </p>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Area)
-        </dt>
+                <span>
+                    @*@Html.DisplayNameFor(model => model.County_City)*@
+                    縣市
+                </span>
 
-        <dd>
-            @Html.DisplayFor(model => model.Area)
-        </dd>
+                <p>
+                    @Html.DisplayFor(model => model.County_City)
+                </p>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.DACreatedDate)
-        </dt>
+                <span>
+                    @*@Html.DisplayNameFor(model => model.Area)*@
+                    鄉、鎮、市、區
+                </span>
 
-        <dd>
-            @Html.DisplayFor(model => model.DACreatedDate)
-        </dd>
+                <p>
+                    @Html.DisplayFor(model => model.Area)
+                </p>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.DAMessage)
-        </dt>
+                <span>
+                    @*@Html.DisplayNameFor(model => model.DACreatedDate)*@
+                    資訊建立時間
+                </span>
 
-        <dd>
-            @Html.DisplayFor(model => model.DAMessage)
-        </dd>
+                <p>
+                    @Html.DisplayFor(model => model.DACreatedDate)
+                </p>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.MbIdentity)
-        </dt>
+                <span>
+                    @*@Html.DisplayNameFor(model => model.Disaster_Accident_Type.DATypeName)*@
+                    災害事故類型
+                </span>
 
-        <dd>
-            @Html.DisplayFor(model => model.MbIdentity)
-        </dd>
+                <p>
+                    @Html.DisplayFor(model => model.Disaster_Accident_Type.DATypeName)
+                </p>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Disaster_Accident_Type.DATypeName)
-        </dt>
+                <span>
+                    @*@Html.DisplayNameFor(model => model.DAMessage)*@
+                    災害事故描述
+                </span>
 
-        <dd>
-            @Html.DisplayFor(model => model.Disaster_Accident_Type.DATypeName)
-        </dd>
+                <p>
+                    @Html.DisplayFor(model => model.DAMessage)
+                </p>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Members.MbName)
-        </dt>
+                <!--<span>-->
+                @*@Html.DisplayNameFor(model => model.MbIdentity)*@
+                <!--建立資訊會員
+                </span>
 
-        <dd>
-            @Html.DisplayFor(model => model.Members.MbName)
-        </dd>
+                 <p>-->
+                      @*@Html.DisplayFor(model => model.MbIdentity)*@
+                 <!--</p>-->
 
-    </dl>
-</div>
-@*<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.DAID }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>*@
+                <span>
+                    @*@Html.DisplayNameFor(model => model.Members.MbName)*@
+                    建立資訊會員
+                </span>
+
+                <p>
+                    @Html.DisplayFor(model => model.Members.MbName)
+
+                </p>
+
+            </div>
+        </div>
+        @*<p>
+                @Html.ActionLink("Edit", "Edit", new { id = Model.DAID }) |
+                @Html.ActionLink("Back to List", "Index")
+            </p>*@

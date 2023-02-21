@@ -83,7 +83,15 @@ namespace MCSDD26.Models
                 Account="admin",
                 Password="123456"
 
-         }
+                },
+                new Employees
+                {
+                EmployeeName="陳某某",
+                CreateDate= DateTime.Today,
+                Account="Admin01",
+                Password="12345678"
+
+                }
             };
 
             employees.ForEach(s => db.Employees.Add(s));

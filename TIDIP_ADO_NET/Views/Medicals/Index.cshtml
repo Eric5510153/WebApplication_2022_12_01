@@ -1,63 +1,97 @@
 ﻿@model IEnumerable<TIDIP_ADO_NET.Models.Medicals>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "醫療單位資訊";
 }
+@section css{
 
-<h2>Index</h2>
+    <style>
+        #addMedicals {
+            display: none;
+        }
+    </style>
+
+}
+<h2>醫療單位資訊</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    <button class="btn btn-success" id="showAddForm">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z" />
+        </svg>&nbsp 建立資訊&nbsp(管理員)
+    </button>
 </p>
+<div class="well" id="addMedicals">
+    @Html.Action("Create")
+</div>
+@*<p>
+        @Html.ActionLink("Create New", "Create")
+    </p>*@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.MedicalName)
+            醫療單位名稱
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.County_City)
+            縣市
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Area)
+            鄉、鎮、市、區
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.MedicalAddress)
+           地址
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.MedicalCreatedDate)
+            資訊建立時間
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.MedicalTel)
+            電話
         </th>
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.MedicalName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.County_City)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Area)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MedicalAddress)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MedicalCreatedDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MedicalTel)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.MedicalID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.MedicalID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.MedicalID })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.MedicalName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.County_City)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Area)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MedicalAddress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MedicalCreatedDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MedicalTel)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.MedicalID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.MedicalID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.MedicalID })
+            </td>
+        </tr>
+    }
 
 </table>
+@section scripts{
+    <script>
+
+
+
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+        $('#showAddForm').click(function () {
+
+            $('#addMedicals').fadeToggle(800);
+        });
+
+    </script>
+}

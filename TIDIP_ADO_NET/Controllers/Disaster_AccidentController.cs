@@ -37,7 +37,7 @@ namespace TIDIP_ADO_NET.Controllers
         }
 
         // GET: Disaster_Accident/Create
-        public ActionResult Create()
+        public ActionResult _Create()
         {
             ViewBag.DATypeID = new SelectList(db.Disaster_Accident_Type, "DATypeID", "DATypeName");
             ViewBag.Member_MbIdentity = new SelectList(db.Members, "MbIdentity", "MbName");
@@ -60,7 +60,7 @@ namespace TIDIP_ADO_NET.Controllers
 
             ViewBag.DATypeID = new SelectList(db.Disaster_Accident_Type, "DATypeID", "DATypeName", disaster_Accident.DATypeID);
             ViewBag.Member_MbIdentity = new SelectList(db.Members, "MbIdentity", "MbName", disaster_Accident.Member_MbIdentity);
-            return PartialView(disaster_Accident);
+            return View(disaster_Accident);
         }
 
         // GET: Disaster_Accident/Edit/5

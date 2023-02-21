@@ -6,12 +6,11 @@
 }
 
 <h2>Create</h2>
-
-
-@using (Html.BeginForm()) 
+<form action="@Url.Action("Create")"></form>
+@using (Html.BeginForm("Create", "Admins", FormMethod.Post))
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>Admins</h4>
         <hr />
@@ -80,9 +79,7 @@
     </div>
 }
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
+
 
 <script src="~/Scripts/jquery-3.4.1.min.js"></script>
 <script src="~/Scripts/jquery.validate.min.js"></script>

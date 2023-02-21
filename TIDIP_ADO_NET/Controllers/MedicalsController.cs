@@ -38,7 +38,7 @@ namespace TIDIP_ADO_NET.Controllers
         // GET: Medicals/Create
         public ActionResult Create()
         {
-            return View();
+            return PartialView();
         }
 
         // POST: Medicals/Create
@@ -52,7 +52,7 @@ namespace TIDIP_ADO_NET.Controllers
             {
                 db.Medicals.Add(medicals);
                 db.SaveChanges();
-                medicals.MedicalCreatedDate= DateTime.Now;
+                //medicals.MedicalCreatedDate= DateTime.Now;
                 return RedirectToAction("Index");
             }
 

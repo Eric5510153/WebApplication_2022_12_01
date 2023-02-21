@@ -38,7 +38,7 @@ namespace TIDIP_ADO_NET.Controllers
         // GET: Police/Create
         public ActionResult Create()
         {
-            return View();
+            return PartialView();
         }
 
         // POST: Police/Create

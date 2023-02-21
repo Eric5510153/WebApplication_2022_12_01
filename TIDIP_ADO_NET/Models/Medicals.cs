@@ -22,7 +22,7 @@ namespace TIDIP_ADO_NET.Models
         public string MedicalAddress { get; set; }
 
         
-        [DisplayFormat(DataFormatString ="{0:yyyy-MM-dd hh:mm:ss}",ApplyFormatInEditMode =true)]
+        //[DisplayFormat(DataFormatString ="{0:yyyy-MM-dd hh:mm:ss}",ApplyFormatInEditMode =true)]
         public System.DateTime MedicalCreatedDate { get; set; }
        
 

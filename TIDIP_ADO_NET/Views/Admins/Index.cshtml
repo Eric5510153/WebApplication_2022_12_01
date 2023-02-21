@@ -3,12 +3,20 @@
 @{
     ViewBag.Title = "Admins";
 }
+@section css{
 
+    <style>
+        #addAdmins {
+            display: none;
+        }
+    </style>
+
+}
 <h2>管理員資料表</h2>
 <p>
-    <button class="btn btn-success" id="showAddForm"><span class="glyphicon glyphicon-plus"></span>&nbsp 建立資訊</button>
+    <button class="btn btn-success" id="showAddForm"><span class="glyphicon glyphicon-plus"></span>&nbsp Create</button>
 </p>
-<div class="well" id="addEmployees">
+<div class="well" id="addAdmins">
     @Html.Action("Create")
 </div>
 @*<p>
@@ -67,3 +75,18 @@
     }
 
 </table>
+@section scripts{
+    <script>
+
+
+
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+        $('#showAddForm').click(function () {
+
+            $('#addAdmins').fadeToggle(800);
+        });
+
+    </script>
+}

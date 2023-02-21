@@ -255,7 +255,7 @@
     <Content Include="Views\Disaster_Accident_Type\Details.cshtml" />
     <Content Include="Views\Disaster_Accident_Type\Edit.cshtml" />
     <Content Include="Views\Disaster_Accident_Type\Index.cshtml" />
-    <Content Include="Views\Disaster_Accident\Create.cshtml" />
+    <Content Include="Views\Disaster_Accident\_Create.cshtml" />
     <Content Include="Views\Disaster_Accident\Delete.cshtml" />
     <Content Include="Views\Disaster_Accident\Details.cshtml" />
     <Content Include="Views\Disaster_Accident\Edit.cshtml" />
@@ -350,6 +350,7 @@
     <Content Include="Views\Medicals\Index.cshtml" />
     <Content Include="Views\Login\LoginOld.cshtml" />
     <Content Include="Views\Login\Login.cshtml" />
+    <Content Include="Views\Disaster_Accident\Create.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

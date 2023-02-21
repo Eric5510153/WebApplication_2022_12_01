@@ -22,7 +22,7 @@
 </svg>&nbsp 建立資訊</button>
 </p>
 <div class="well" id="addDisaster_Accident">
-    @Html.Action("Create")
+    @Html.Action("_Create")
 </div>
 @*<p>
         @Html.ActionLink("新增", "Create", null, new { })
@@ -31,7 +31,7 @@
     <tr>
        
         <th>
-            發生時間
+            資訊建立時間
             @*@Html.DisplayNameFor(model => model.DACreatedDate)*@
         </th>
         <th>
@@ -52,10 +52,10 @@
         </th>
 
       
-        <th>
-            建立此資訊會員
+        <!--<th>
+            建立此資訊會員-->
             @*@Html.DisplayNameFor(model => model.MbIdentity)*@
-        </th>
+        <!--</th>-->
         <!--<th>-->
         @*@Html.DisplayNameFor(model => model.Members.MbName)*@
         <!--</th>-->
@@ -81,9 +81,9 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Disaster_Accident_Type.DATypeName)
             </td>
-            <td>
+            @*<td>
                 @Html.DisplayFor(modelItem => item.MbIdentity)
-            </td>
+            </td>*@
 
 
             <td>
@@ -96,11 +96,11 @@
                         <path fill-rule="evenodd" d="M2 2.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5V3a.5.5 0 0 0-.5-.5H2zM3 3H2v1h1V3z" />
                         <path d="M5 3.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zM5.5 7a.5.5 0 0 0 0 1h9a.5.5 0 0 0 0-1h-9zm0 4a.5.5 0 0 0 0 1h9a.5.5 0 0 0 0-1h-9z" />
                         <path fill-rule="evenodd" d="M1.5 7a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H2a.5.5 0 0 1-.5-.5V7zM2 7h1v1H2V7zm0 3.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5H2zm1 .5H2v1h1v-1z" />
-                    </svg>&nbsp;Details
+                    </svg>&nbsp;詳細內容
                 </button>
 
                 <!-- 管理員功能-->
-                @Html.ActionLink(" Delete", "Delete", new { id = item.DAID }, new { @class = "btn btn-danger glyphicon glyphicon-trash" })
+                @Html.ActionLink(" Delete (管理員)", "Delete", new { id = item.DAID }, new { @class = "btn btn-danger glyphicon glyphicon-trash" })
                 
             </td>
         </tr>
@@ -117,7 +117,11 @@
             <div class="modal-body">
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-info" data-dismiss="modal">Exit</button>
+                <button type="button" class="btn btn-info" data-dismiss="modal">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+                        <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z" />
+                    </svg> 關閉
+                </button>
 
             </div>
         </div>
