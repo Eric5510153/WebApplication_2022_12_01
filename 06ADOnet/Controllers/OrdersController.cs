@@ -36,7 +36,6 @@ namespace _06ADOnet.Controllers
                 new SqlParameter("id",id)
             };
 
-
             var order = gd.TableQuery(sql, list);
 
             return View(order);
@@ -54,14 +53,12 @@ namespace _06ADOnet.Controllers
         public ActionResult getPivotOfProducts(int yy = 1996)
         {
             string sql = "Sum_for_Products_Salse_Pivot";
-
             List<SqlParameter> list = new List<SqlParameter>
             {
                 new SqlParameter("yy",yy)
             };
             ViewBag.Year = yy;
             var pivot = gd.TableQueryBySP(sql, list);
-
             return View(pivot);
         }
 

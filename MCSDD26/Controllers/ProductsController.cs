@@ -6,111 +6,112 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using TIDIP_ADO_NET.Models;
+using MCSDD26.Models;
 
-namespace TIDIP_ADO_NET.Controllers
+namespace MCSDD26.Controllers
 {
-    public class RescuesController : Controller
+    public class ProductsController : Controller
     {
-        private TIDIPEntities db = new TIDIPEntities();
+        private MCSDD26Ccontext db = new MCSDD26Ccontext();
 
-        // GET: Rescues
+        // GET: Products
         public ActionResult Index()
         {
-            return View(db.Rescues.ToList());
+            return View(db.Products.ToList());
         }
 
-        // GET: Rescues/Details/5
-        public ActionResult Details(int? id)
+        // GET: Products/Details/5
+        public ActionResult Details(string id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Rescues rescues = db.Rescues.Find(id);
-            if (rescues == null)
+            Products products = db.Products.Find(id);
+            if (products == null)
             {
                 return HttpNotFound();
             }
-            return PartialView(rescues);
+            return View(products);
         }
 
-        // GET: Rescues/Create
+        // GET: Products/Create
+        [LoginCheck]
         public ActionResult Create()
         {
-            return PartialView();
+            return View();
         }
 
-        // POST: Rescues/Create
+        // POST: Products/Create
         // 若要避免過量張貼攻擊，請啟用您要繫結的特定屬性。
         // 如需詳細資料，請參閱 https://go.microsoft.com/fwlink/?LinkId=317598。
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "RescueId,RescueName,County_City,Area,RescueAddress,RescueCreatedDate,RescueTel")] Rescues rescues)
+        public ActionResult Create([Bind(Include = "ProductID,ProductName,PhotoFile,ImageMimeType,UnitPrice,Description,UnitsInStock,Discontinued,CreateTime")] Products products)
         {
             if (ModelState.IsValid)
             {
-                db.Rescues.Add(rescues);
+                db.Products.Add(products);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(rescues);
+            return View(products);
         }
 
-        // GET: Rescues/Edit/5
-        public ActionResult Edit(int? id)
+        // GET: Products/Edit/5
+        public ActionResult Edit(string id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Rescues rescues = db.Rescues.Find(id);
-            if (rescues == null)
+            Products products = db.Products.Find(id);
+            if (products == null)
             {
                 return HttpNotFound();
             }
-            return View(rescues);
+            return View(products);
         }
 
-        // POST: Rescues/Edit/5
+        // POST: Products/Edit/5
         // 若要避免過量張貼攻擊，請啟用您要繫結的特定屬性。
         // 如需詳細資料，請參閱 https://go.microsoft.com/fwlink/?LinkId=317598。
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "RescueId,RescueName,County_City,Area,RescueAddress,RescueCreatedDate,RescueTel")] Rescues rescues)
+        public ActionResult Edit([Bind(Include = "ProductID,ProductName,PhotoFile,ImageMimeType,UnitPrice,Description,UnitsInStock,Discontinued,CreateTime")] Products products)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(rescues).State = EntityState.Modified;
+                db.Entry(products).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(rescues);
+            return View(products);
         }
 
-        // GET: Rescues/Delete/5
-        public ActionResult Delete(int? id)
+        // GET: Products/Delete/5
+        public ActionResult Delete(string id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Rescues rescues = db.Rescues.Find(id);
-            if (rescues == null)
+            Products products = db.Products.Find(id);
+            if (products == null)
             {
                 return HttpNotFound();
             }
-            return View(rescues);
+            return View(products);
         }
 
-        // POST: Rescues/Delete/5
+        // POST: Products/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        public ActionResult DeleteConfirmed(string id)
         {
-            Rescues rescues = db.Rescues.Find(id);
-            db.Rescues.Remove(rescues);
+            Products products = db.Products.Find(id);
+            db.Products.Remove(products);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

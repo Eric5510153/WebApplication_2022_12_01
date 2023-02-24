@@ -6,111 +6,115 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using TIDIP_ADO_NET.Models;
+using MCSDD26.Models;
 
-namespace TIDIP_ADO_NET.Controllers
+namespace MCSDD26.Controllers
 {
-    public class RescuesController : Controller
+   
+    public class PayTypesController : Controller
     {
-        private TIDIPEntities db = new TIDIPEntities();
+        private MCSDD26Ccontext db = new MCSDD26Ccontext();
 
-        // GET: Rescues
+        // GET: PayTypes
         public ActionResult Index()
         {
-            return View(db.Rescues.ToList());
+            return View(db.PayTypes.ToList());
         }
 
-        // GET: Rescues/Details/5
+        // GET: PayTypes/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Rescues rescues = db.Rescues.Find(id);
-            if (rescues == null)
+            PayTypes payTypes = db.PayTypes.Find(id);
+            if (payTypes == null)
             {
                 return HttpNotFound();
             }
-            return PartialView(rescues);
+            return View(payTypes);
         }
 
-        // GET: Rescues/Create
+        // GET: PayTypes/Create
+        [LoginCheck]
         public ActionResult Create()
         {
-            return PartialView();
+            return View();
         }
 
-        // POST: Rescues/Create
+        // POST: PayTypes/Create
         // 若要避免過量張貼攻擊，請啟用您要繫結的特定屬性。
         // 如需詳細資料，請參閱 https://go.microsoft.com/fwlink/?LinkId=317598。
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "RescueId,RescueName,County_City,Area,RescueAddress,RescueCreatedDate,RescueTel")] Rescues rescues)
+        public ActionResult Create([Bind(Include = "PayTypeID,PayTypeName")] PayTypes payTypes)
         {
             if (ModelState.IsValid)
             {
-                db.Rescues.Add(rescues);
+                db.PayTypes.Add(payTypes);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(rescues);
+            return View(payTypes);
         }
 
-        // GET: Rescues/Edit/5
+        // GET: PayTypes/Edit/5
+        
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Rescues rescues = db.Rescues.Find(id);
-            if (rescues == null)
+            PayTypes payTypes = db.PayTypes.Find(id);
+            if (payTypes == null)
             {
                 return HttpNotFound();
             }
-            return View(rescues);
+            return View(payTypes);
         }
 
-        // POST: Rescues/Edit/5
+        // POST: PayTypes/Edit/5
         // 若要避免過量張貼攻擊，請啟用您要繫結的特定屬性。
         // 如需詳細資料，請參閱 https://go.microsoft.com/fwlink/?LinkId=317598。
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "RescueId,RescueName,County_City,Area,RescueAddress,RescueCreatedDate,RescueTel")] Rescues rescues)
+        public ActionResult Edit([Bind(Include = "PayTypeID,PayTypeName")] PayTypes payTypes)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(rescues).State = EntityState.Modified;
+                db.Entry(payTypes).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(rescues);
+            return View(payTypes);
         }
 
-        // GET: Rescues/Delete/5
+        // GET: PayTypes/Delete/5
+        
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Rescues rescues = db.Rescues.Find(id);
-            if (rescues == null)
+            PayTypes payTypes = db.PayTypes.Find(id);
+            if (payTypes == null)
             {
                 return HttpNotFound();
             }
-            return View(rescues);
+            return View(payTypes);
         }
 
-        // POST: Rescues/Delete/5
+        // POST: PayTypes/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Rescues rescues = db.Rescues.Find(id);
-            db.Rescues.Remove(rescues);
+            PayTypes payTypes = db.PayTypes.Find(id);
+            db.PayTypes.Remove(payTypes);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

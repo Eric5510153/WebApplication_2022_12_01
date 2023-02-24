@@ -35,7 +35,7 @@ namespace MCSDD26.Models
 
 
 
-        string password;
+        //string password;
 
         [DisplayName("密碼")]
         [Required(ErrorMessage = "密碼為必填欄位")]
@@ -43,7 +43,8 @@ namespace MCSDD26.Models
         //[MinLength(8,ErrorMessage ="密碼最少8個字元")]
         //[MaxLength(8, ErrorMessage = "密碼最多20個字元")]
         //[StringLength(20)]
-        public string Password 
+        public string Password { get; set; }
+       /* public string Password 
         {
             get 
             {
@@ -59,7 +60,7 @@ namespace MCSDD26.Models
             } 
         }
 
-
+        */
 
 
         //public string getHashPassword(string pw)

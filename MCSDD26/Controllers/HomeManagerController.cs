@@ -6,8 +6,10 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace MCSDD26.Controllers
+
+namespace MCSDD26.Controllers 
 {
+
     public class HomeManagerController : Controller
     {   
        MCSDD26Ccontext db = new MCSDD26Ccontext();
@@ -49,5 +51,17 @@ namespace MCSDD26.Controllers
           Session["user"] = null;
             return RedirectToAction("Login");
         }
+
+
+        //public ActionResult Logout()
+        //{
+
+        //    Session["user"] = null;
+        //    return RedirectToAction("Home");
+        //}
+
+
+
     }
+
 }

@@ -32,7 +32,7 @@ namespace TIDIP_ADO_NET.Controllers
             {
                 return HttpNotFound();
             }
-            return View(medicals);
+            return PartialView(medicals);
         }
 
         // GET: Medicals/Create
@@ -46,7 +46,7 @@ namespace TIDIP_ADO_NET.Controllers
         // 如需詳細資料，請參閱 https://go.microsoft.com/fwlink/?LinkId=317598。
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(/*[Bind(Include = "MedicalID,MedicalName,County_City,Area,MedicalAddress,MedicalCreatedDate,MedicalTel")]*/ Medicals medicals)
+        public ActionResult Create([Bind(Include = "MedicalID,MedicalName,County_City,Area,MedicalAddress,MedicalCreatedDate,MedicalTel")] Medicals medicals)
         {
             if (ModelState.IsValid)
             {

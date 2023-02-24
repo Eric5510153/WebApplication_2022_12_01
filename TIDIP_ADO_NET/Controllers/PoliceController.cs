@@ -32,7 +32,7 @@ namespace TIDIP_ADO_NET.Controllers
             {
                 return HttpNotFound();
             }
-            return View(police);
+            return PartialView(police);
         }
 
         // GET: Police/Create

@@ -1,0 +1,153 @@
+﻿@using PagedList;
+@using PagedList.Mvc;
+
+
+@*@model IEnumerable<MCSDD26.Models.Members>*@
+@model IPagedList<MCSDD26.Models.Members>
+
+@{
+    ViewBag.Title = "Index";
+
+}
+
+
+
+    <style>
+        #addMembers {
+            display: none;
+        }
+    </style>
+
+
+
+
+<h2>會員管理</h2>
+<p>
+    <button class="btn btn-success" id="showAddForm">新增會員</button>
+</p>
+<div class="well" id="addMembers">
+    @Html.Action("Create")
+</div>
+
+@*<p>
+        @Html.ActionLink("Create New", "Create")
+    </p>*@
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstOrDefault().MemberID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstOrDefault().MemberName)
+        </th>
+        @*<th>
+                @Html.DisplayNameFor(model => model.MemberPhotoFile)
+            </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.FirstOrDefault().MemberBirdthday)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.FirstOrDefault().CreatedDate)
+        </th>
+        @*<th>
+                @Html.DisplayNameFor(model => model.Account)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Password)
+            </th>*@
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.MemberID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MemberName)
+            </td>
+            @*<td>
+                    @Html.DisplayFor(modelItem => item.MemberPhotoFile)
+                </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.MemberBirdthday)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedDate)
+            </td>
+            @*<td>
+                    @Html.DisplayFor(modelItem => item.Account)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Password)
+                </td>*@
+            <td>
+                <button type="button" id="@item.MemberID" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#showDetailModal" onclick="editMemberData(event)">
+                    編輯會員資料
+                </button>
+
+
+
+                @*@Html.ActionLink("查看詳細資料", "Details", new { id = item.MemberID }, new { @class = "btn btn-success btn-sm" })*@
+
+                <button type="button" id="@item.MemberID" class="btn btn-success btn-sm" data-toggle="modal" data-target="#showDetailModal" onclick="getDetailData(event)">
+                    查看詳細資料
+                </button>
+
+                @Html.ActionLink("更改密碼", "Delete", new { id = item.MemberID }, new { @class = "btn btn-danger btn-sm" })
+            </td>
+        </tr>
+    }
+
+</table>
+
+@Html.PagedListPager(Model, Page => Url.Action("Index", new { Page }))
+
+
+<div class="modal fade" id="showDetailModal" tabindex="-1">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" style="font-weight:bold; font-size:2rem;" id="exampleModalLabel">會員詳細資料</h3>
+                <button type="button" class="close" data-dismiss="modal">
+                    <span>&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+@section scripts{
+    <script>
+
+        $('.pagination-container >ul').addClass('justify-content-center');
+        $('.pagination-container >ul>li').removeClass().addClass('page-item');
+        $('.pagination-container >ul>li>a').addClass('page-link');
+
+        function getDetailData(evt) {
+            $('#showDetailModal .modal-body').load("/Members/_Details/" + evt.target.id);
+            //'#ShowDetailModal .modal-body'  注意需要空格
+        }
+        function editMemberData(evt) {
+
+            $('#showDetailModal .modal-body').load("/Members/Edit/" + evt.target.id);
+        }
+
+
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+        $('#showAddForm').click(function () {
+
+            $('#addMembers').fadeToggle(800);
+        });
+
+    </script>
+}

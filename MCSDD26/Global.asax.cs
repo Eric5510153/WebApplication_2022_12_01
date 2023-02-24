@@ -16,7 +16,7 @@ namespace MCSDD26
         protected void Application_Start()
         {
          
-             //Database.SetInitializer<MCSDD26Ccontext>(new MCSDD26Initializer());
+            // Database.SetInitializer<MCSDD26Ccontext>(new MCSDD26Initializer());
             
             
             AreaRegistration.RegisterAllAreas();

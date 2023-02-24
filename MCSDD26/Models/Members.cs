@@ -27,7 +27,7 @@ namespace MCSDD26.Models
 
 
             [DisplayName("會員生日")]
-            [DisplayFormat(DataFormatString = "{0:yyyy/MM/dd hh:mm}", ApplyFormatInEditMode = true)]
+            [DisplayFormat(DataFormatString = "{0:yyyy/MM/dd}", ApplyFormatInEditMode = true)]
             [DataType(DataType.DateTime)]
             [Required(ErrorMessage ="生日為必填欄位")]
         public DateTime MemberBirdthday { get; set; }
@@ -36,7 +36,7 @@ namespace MCSDD26.Models
 
 
             [DisplayName("建立時間")]
-            [DisplayFormat(DataFormatString = "{0:yyyy/MM/dd hh:mm}", ApplyFormatInEditMode = true)]
+            [DisplayFormat(DataFormatString = "{0:yyyy/MM/dd}", ApplyFormatInEditMode = true)]
             [DataType(DataType.DateTime)]
             [Required]
          public DateTime CreatedDate { get; set; }

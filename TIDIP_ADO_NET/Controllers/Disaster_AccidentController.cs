@@ -33,7 +33,7 @@ namespace TIDIP_ADO_NET.Controllers
             {
                 return HttpNotFound();
             }
-            return View(disaster_Accident);
+            return PartialView(disaster_Accident);
         }
 
         // GET: Disaster_Accident/Create
