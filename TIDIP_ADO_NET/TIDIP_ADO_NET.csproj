@@ -279,6 +279,7 @@
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\MedicalsController.cs" />
     <Compile Include="Controllers\MembersController.cs" />
+    <Compile Include="Controllers\MembersLoginController.cs" />
     <Compile Include="Controllers\PoliceController.cs" />
     <Compile Include="Controllers\RescuesController.cs" />
     <Compile Include="Global.asax.cs">
@@ -325,6 +326,7 @@
     </Compile>
     <Compile Include="Models\VMLogin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="viewModels\MBLogin.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
@@ -351,6 +353,9 @@
     <Content Include="Views\Login\LoginOld.cshtml" />
     <Content Include="Views\Login\Login.cshtml" />
     <Content Include="Views\Disaster_Accident\Create.cshtml" />
+    <Content Include="Views\Shared\_Layout_Manger.cshtml" />
+    <Content Include="Views\MembersLogin\MBLogin.cshtml" />
+    <Content Include="Views\MembersLogin\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -360,6 +365,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\HomeManger\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />

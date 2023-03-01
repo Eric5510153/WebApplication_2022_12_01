@@ -17,7 +17,7 @@ namespace MCSDD26.Controllers
         private MCSDD26Ccontext db = new MCSDD26Ccontext();
         setData setData = new setData();
 
-        int pageSize = 10;
+        int pageSize = 3;
         // GET: Members
 
         public ActionResult Index(int page=1)

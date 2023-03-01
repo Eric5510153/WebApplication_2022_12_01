@@ -19,6 +19,14 @@ namespace MCSDD26.Controllers
         {
             return View(db.Products.ToList());
         }
+        public FileContentResult GetImage(string id)
+        {
+            var photo = db.Products.Find(id);
+            if (photo != null)
+                return File(photo.PhotoFile, photo.ImageMimeType);
+
+            return null;
+        }
 
         // GET: Products/Details/5
         public ActionResult Details(string id)
