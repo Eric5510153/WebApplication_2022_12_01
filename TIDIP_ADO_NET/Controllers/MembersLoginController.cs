@@ -37,8 +37,6 @@ namespace TIDIP_ADO_NET.Controllers
             Session["mb"] = mb;
             return RedirectToAction("Index");
 
-
-
         }
 
     }

@@ -1,24 +1,71 @@
-﻿<div class="jumbotron">
+﻿@model IEnumerable<MCSDD26.Models.Products>
+@{
+
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+
+@*<div class="jumbotron">
     <h1>ASP.NET</h1>
     <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS, and JavaScript.</p>
     <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+</div>*@
+<div class="row mt-2">
+    @foreach (var item in Model)
+    {
+
+    <a class="card  col-lg-3"  href="@Url.Action("Display", new { id=item.ProductID})">
+        <img src="@Url.Action("GetImage","Products",new { id=item.ProductID})" class="img-fluid pt-2" />
+        <div class="card-body">
+            <h5 class="text-dark"><strong>@item.ProductName</strong></h5>
+            @*<p>
+                @item.Description
+            </p>*@
+            
+        </div>
+        <div class="card-footer" >
+            <h3 class="text-danger text-right">@Html.DisplayFor(modelItem => item.UnitPrice)</h3>
+            <p><span class="btn btn-outline-danger btn-block">加入購物車 &raquo;</span></p>
+        </div>
+    </a>
+    }
 </div>
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>ASP.NET Web API is a framework that makes it easy to build HTTP services that reach
-        a broad range of clients, including browsers and mobile devices. ASP.NET Web API
-        is an ideal platform for building RESTful applications on the .NET Framework.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301870">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301871">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301872">Learn more &raquo;</a></p>
-    </div>
-</div>
+<span id="MyCart">
+    <i class="bi bi-cart4"></i>
+    <span>購物車</span>
+    </span>
+@section css{
+<style>
+
+  
+
+    a:hover {
+    
+            text-decoration:none;
+    
+    }
+
+    #MyCart {
+    
+    
+    position:fixed;
+    right:30px;
+    bottom:70px;
+    font-size:3rem;
+    
+
+    
+    }
+        #MyCart > span {
+        
+        
+        font-size:1rem;
+        
+        
+        }
+
+</style >
+
+    
+
+    }

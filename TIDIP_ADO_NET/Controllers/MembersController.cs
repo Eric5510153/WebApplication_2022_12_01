@@ -52,7 +52,7 @@ namespace TIDIP_ADO_NET.Controllers
             {
                 db.Members.Add(members);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "Disaster_Accident");
             }
 
             return View(members);
