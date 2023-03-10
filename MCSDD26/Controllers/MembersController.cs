@@ -17,7 +17,7 @@ namespace MCSDD26.Controllers
         private MCSDD26Ccontext db = new MCSDD26Ccontext();
         setData setData = new setData();
 
-        int pageSize = 3;
+        int pageSize = 10;
         // GET: Members
 
         public ActionResult Index(int page=1)
@@ -59,13 +59,28 @@ namespace MCSDD26.Controllers
         // 如需詳細資料，請參閱 https://go.microsoft.com/fwlink/?LinkId=317598。
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "MemberID,MemberName,MemberPhotoFile,MemberBirdthday,CreatedDate,Account,Password")] Members members)
+        public ActionResult Create(/*[Bind(Include = "MemberID,MemberName,MemberPhotoFile,MemberBirdthday,CreatedDate,Account,Password")]*/ Members members)
         {
             if (ModelState.IsValid)
             {
-                db.Members.Add(members);
+                db.Members.Add(new Members()
+                {   
+                    MemberName = members.MemberName,
+                    MemberPhotoFile = members.MemberPhotoFile,
+                    MemberBirdthday = members.MemberBirdthday,    
+                    CreatedDate=DateTime.Now,
+                    Account= members.Account,
+                    Password= members.Password,
+
+                
+                
+                });
+
+               // db.Members.Add(members);
                 db.SaveChanges();
+               
                 return RedirectToAction("Index");
+               
             }
 
             return View(members);

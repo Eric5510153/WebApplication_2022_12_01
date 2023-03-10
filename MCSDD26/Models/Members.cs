@@ -49,7 +49,7 @@ namespace MCSDD26.Models
             public string Account { get; set; }
 
 
-        string password;
+       //  string password;
         [DisplayName("密碼")]
         [Required(ErrorMessage = "密碼為必填欄位")]
         [DataType(DataType.Password)]
@@ -58,18 +58,20 @@ namespace MCSDD26.Models
 
         public string Password
         {
-            get
-            {
-                return password;
+            get;
+            /* {
+                 return password;
+           }
+             */
+            set;
+          /*  {
+
+               // password = BR.getHashPassword(value);
             }
 
-            set
-            {
-              
-                password = BR.getHashPassword(value);
-            }
+            */
         }
-
+       
 
 
 

@@ -10,6 +10,7 @@ using MCSDD26.Models;
 
 namespace MCSDD26.Controllers
 {
+    [LoginCheck]
     public class ProductsController : Controller
     {
         private MCSDD26Ccontext db = new MCSDD26Ccontext();
@@ -19,6 +20,8 @@ namespace MCSDD26.Controllers
         {
             return View(db.Products.ToList());
         }
+
+        [LoginCheck(flag =false)]
         public FileContentResult GetImage(string id)
         {
             var photo = db.Products.Find(id);

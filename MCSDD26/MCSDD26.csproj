@@ -391,6 +391,8 @@
     <Content Include="Views\Members\Create02.cshtml" />
     <Content Include="Views\Shared\_Layout_Manger.cshtml" />
     <Content Include="Views\Home\Display.cshtml" />
+    <Content Include="Views\Home\MyCart.cshtml" />
+    <Content Include="Views\Home\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

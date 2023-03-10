@@ -20,7 +20,7 @@
                 <p>
                     @Html.Raw(Model.Description.ToString().Replace("\n", "<br>"))
                 </p>
-                <p class="text-black-50 text-right">原價:<span style="text-decoration:line-through">@(Model.UnitPrice*5)</span></p>
+                <p class="text-black-50 text-right">原價:<span style="text-decoration:line-through">@(Model.UnitPrice*1.2)</span></p>
                 <h2 class="text-danger text-right"><strong>@Html.DisplayFor(modelItem => Model.UnitPrice)</strong></h2>
                 <h3 class="text-left">
                     <button class="btn btn-outline-danger"><i class="bi bi-heart-fill text-danger" data-toggle="tooltip" data-placement="bottom" title="加入追蹤"></i>&nbsp加入追蹤</button>

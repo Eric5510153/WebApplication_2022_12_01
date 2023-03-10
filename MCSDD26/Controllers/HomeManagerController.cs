@@ -14,6 +14,7 @@ namespace MCSDD26.Controllers
     {   
        MCSDD26Ccontext db = new MCSDD26Ccontext();
         // GET: HomeManager
+        [LoginCheck]
         public ActionResult Index()
         {
             return View();
@@ -31,8 +32,6 @@ namespace MCSDD26.Controllers
         {
             string password = BR.getHashPassword(vMLogin.Password);
             var user =db.Employees.Where(m=>m.Account==vMLogin.Account && m.Password == vMLogin.Password).FirstOrDefault();
-
-           
 
             if (user == null)
             {

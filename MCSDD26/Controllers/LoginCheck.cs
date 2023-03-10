@@ -10,28 +10,46 @@ namespace MCSDD26.Models
 {
     public class LoginCheck:ActionFilterAttribute
     {
+        public bool flag = true;
 
-        void LoginState(HttpContext context)
+        public short id = 2;
+
+
+        void MemberLoginState(HttpContext context)
         {
-
+           
+                if (context.Session["member"]==null)
+                {
+                 context.Response.Redirect("/Home/Login");
+                }
+       
+        }
+        void AdminLoginState(HttpContext context)
+        {
             if (context.Session["user"] == null)
             {
-
-
                 context.Response.Redirect("/HomeManager/Login");
-                
-
             }
-                         
+
         }
 
 
         public override void OnActionExecuting(ActionExecutingContext filterContex)
         {
-
-            HttpContext context = HttpContext.Current;
-            LoginState(context);
-        
+            if (flag)
+            {
+              
+                HttpContext context = HttpContext.Current;
+                if (id == 1)
+                {
+                    MemberLoginState(context);
+                }
+                else { 
+                
+                      AdminLoginState(context);
+                
+                }
+            }
         }
 
 

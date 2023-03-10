@@ -16,48 +16,51 @@
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainMenu" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
+           
+                <div class="collapse navbar-collapse" id="mainMenu">
 
-            <div class="collapse navbar-collapse" id="mainMenu">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item ">
-                        @Html.ActionLink("客戶管理", "Index", "Home", new { area = "" }, new { @class = "nav-link" })
-                    </li>
-                    <li class="nav-item">
-                        @Html.ActionLink("商品管理", "Index", "Products", new { area = "" }, new { @class = "nav-link" })
-                    </li>
-                    <li class="nav-item">
-                        @Html.ActionLink("付款方式管理", "Index", "PayTypes", new { area = "" }, new { @class = "nav-link" })
-                    </li>
-                    <li class="nav-item">
-                        @Html.ActionLink("會員管理", "Index", "Members", new { area = "" }, new { @class = "nav-link" })
-                    </li>
-                </ul>
-                <form class="form-inline my-2 my-lg-0">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
-                </form>
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item ">
+                            @Html.ActionLink("客戶管理", "Index", "Home", new { area = "" }, new { @class = "nav-link" })
+                        </li>
+                        <li class="nav-item">
+                            @Html.ActionLink("商品管理", "Index", "Products", new { area = "" }, new { @class = "nav-link" })
+                        </li>
+                        <li class="nav-item">
+                            @Html.ActionLink("付款方式管理", "Index", "PayTypes", new { area = "" }, new { @class = "nav-link" })
+                        </li>
+                        <li class="nav-item">
+                            @Html.ActionLink("會員管理", "Index", "Members", new { area = "" }, new { @class = "nav-link" })
+                        </li>
+                    </ul>
 
+                    <form class="form-inline my-2 my-lg-0 ">
+                        <input class="form-control mr-sm-2" type="search" placeholder="搜尋" aria-label="Search">
+                        <button class="btn btn-outline-light my-2 my-sm-0" type="submit">搜尋</button>
+                    </form>
+                    
+                </div>
+            
+                <div>&nbsp;</div>
+                @if (Session["user"] != null)
+                {
+
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item ml-auto">
+                            @Html.ActionLink("登出", "Logout", "HomeManager", new { area = "" }, new { @class = "nav-link btn btn-outline-danger btn-sm  ml-5" })
+                        </li>
+                    </ul>
+                }
+                @if (Session["user"] == null)
+                {
+
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item ml-auto">
+                            @Html.ActionLink("登入", "Login", "HomeManager", new { area = "" }, new { @class = "nav-link btn btn-outline-success btn-sm ml-5" })
+                        </li>
+                    </ul>
+                }
             </div>
-            <div>&nbsp;</div>
-            @if (Session["user"] != null)
-            {
-
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item ml-auto">
-                        @Html.ActionLink("登出", "Logout", "HomeManager", new { area = "" }, new { @class = "nav-link btn btn-outline-danger btn-sm" })
-                    </li>
-                </ul>
-            }
-            @if (Session["user"] == null)
-            {
-
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item ml-auto">
-                        @Html.ActionLink("登入", "Login", "HomeManager", new { area = "" }, new { @class = "nav-link btn btn-outline-success btn-sm" })
-                    </li>
-                </ul>
-            }
-        </div>
     </nav>
     <div class="container body-content">
         @RenderBody()
