@@ -171,6 +171,7 @@
     <Compile Include="Controllers\EmployeesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\HomeManagerController.cs" />
+    <Compile Include="Controllers\MemberOrderController.cs" />
     <Compile Include="Controllers\MembersController.cs" />
     <Compile Include="Controllers\PayTypesController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
@@ -202,6 +203,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\PagedList.css" />
+    <Content Include="ErrorPage.html" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Areas\HelpPage\Views\Web.config" />
@@ -388,11 +390,15 @@
     <Content Include="Views\Products\Details.cshtml" />
     <Content Include="Views\Products\Edit.cshtml" />
     <Content Include="Views\Products\Index.cshtml" />
-    <Content Include="Views\Members\Create02.cshtml" />
+    <Content Include="Views\Members\Create_Old.cshtml" />
     <Content Include="Views\Shared\_Layout_Manger.cshtml" />
     <Content Include="Views\Home\Display.cshtml" />
     <Content Include="Views\Home\MyCart.cshtml" />
     <Content Include="Views\Home\Login.cshtml" />
+    <Content Include="Views\MemberOrder\Order.cshtml" />
+    <Content Include="Views\MemberOrder\MyOrderList.cshtml" />
+    <Content Include="Views\Home\ExceptionDemo.cshtml" />
+    <Content Include="Views\Shared\Error2.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

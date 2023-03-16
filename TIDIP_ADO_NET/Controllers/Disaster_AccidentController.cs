@@ -4,6 +4,8 @@ using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
+using System.Net.NetworkInformation;
+using System.Security.Principal;
 using System.Web;
 using System.Web.Mvc;
 using TIDIP_ADO_NET.Models;
@@ -49,6 +51,32 @@ namespace TIDIP_ADO_NET.Controllers
         // 如需詳細資料，請參閱 https://go.microsoft.com/fwlink/?LinkId=317598。
         [HttpPost]
         [ValidateAntiForgeryToken]
+        public ActionResult Create(/*[Bind(Include = "DAID,DALocation,County_City,Area,DACreatedDate,DAMessage,MbIdentity,DATypeID,Member_MbIdentity")]*/ Disaster_Accident disaster_Accident)
+        
+        {
+            
+            //var mbID = ((Members)Session["mb"]).MbIdentity.FirstOrDefault();
+
+            disaster_Accident.DACreatedDate = DateTime.Now;
+            
+            db.Disaster_Accident.Add(disaster_Accident);
+            if (ModelState.IsValid)
+            {
+
+
+                
+
+
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
+            ViewBag.DATypeID = new SelectList(db.Disaster_Accident_Type, "DATypeID", "DATypeName", disaster_Accident.DATypeID);
+            ViewBag.Member_MbIdentity = new SelectList(db.Members, "MbIdentity", "MbName", disaster_Accident.Member_MbIdentity);
+            return View(disaster_Accident);
+        }
+        /* =================> Original!!!!!!!!!!!!!!!!<==================
+         
         public ActionResult Create([Bind(Include = "DAID,DALocation,County_City,Area,DACreatedDate,DAMessage,MbIdentity,DATypeID,Member_MbIdentity")] Disaster_Accident disaster_Accident)
         {
             if (ModelState.IsValid)
@@ -62,6 +90,8 @@ namespace TIDIP_ADO_NET.Controllers
             ViewBag.Member_MbIdentity = new SelectList(db.Members, "MbIdentity", "MbName", disaster_Accident.Member_MbIdentity);
             return View(disaster_Accident);
         }
+         =================> Original!!!!!!!!!!!!!!!!<=====================
+         */
 
         // GET: Disaster_Accident/Edit/5
         public ActionResult Edit(int? id)

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
@@ -33,6 +34,40 @@ namespace MCSDD26.Models
         public void executeSql(string sql, List<SqlParameter> list)
         {
             cmd.CommandText = sql;
+
+            foreach (var p in list)
+            {
+                cmd.Parameters.Add(p);
+            }
+
+            conn.Open();
+            cmd.ExecuteNonQuery();
+            cmd.Dispose();
+            conn.Close();
+        }
+
+
+
+        public void executeSqlBySP(string SPName)
+        {
+            cmd.CommandText = SPName;
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            conn.Open();
+            cmd.ExecuteNonQuery();
+            cmd.Dispose();
+            conn.Close();
+        }
+
+        /// <summary>
+        /// 必須傳入SqlParameter List泛型參數
+        /// </summary>
+        /// <param name="sql"></param>
+        /// <param name="list"></param>
+        public void executeSqlBySP(string SPName, List<SqlParameter> list)
+        {
+            cmd.CommandText = SPName;
+            cmd.CommandType = CommandType.StoredProcedure;
 
             foreach (var p in list)
             {

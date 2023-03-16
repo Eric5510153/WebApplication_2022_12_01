@@ -6,26 +6,29 @@
 //     如果重新產生程式碼，將會覆寫對這個檔案的手動變更。
 // </auto-generated>
 //------------------------------------------------------------------------------
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Web;
 
 namespace TIDIP_ADO_NET.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
+    
     public partial class Medicals
     {
         public int MedicalID { get; set; }
+        [Required]
         public string MedicalName { get; set; }
         public string County_City { get; set; }
         public string Area { get; set; }
+        [Required]
         public string MedicalAddress { get; set; }
-
-        
-        //[DisplayFormat(DataFormatString ="{0:yyyy-MM-dd hh:mm:ss}",ApplyFormatInEditMode =true)]
         public System.DateTime MedicalCreatedDate { get; set; }
-       
-
+        [Required]
         public string MedicalTel { get; set; }
     }
 }

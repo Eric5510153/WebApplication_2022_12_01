@@ -47,9 +47,10 @@ namespace TIDIP.Models
 
 
 
-        //FK
 
-        public int MbIdentity { get; set; }
+        //FK
+        
+        public int MbIdentity { get; set; }   //注意資料型態錯誤
         
         public string DATypeID { get; set; }
         

@@ -12,6 +12,19 @@ namespace MCSDD26.Controllers
     {
         MCSDD26Ccontext db = new MCSDD26Ccontext();
 
+        [HandleError(View = "Error")]
+        public ActionResult ExceptionDemo()
+        {
+            int i = 0;
+
+            int j = 100 / i;
+
+            return View();
+        }
+        public ActionResult Test()
+        {
+            throw new NotImplementedException();
+        }
         public ActionResult Index()
         {
             var products = db.Products.Where(p => p.Discontinued == false).ToList();

@@ -145,6 +145,7 @@
     <Content Include="MUSIC\動力火車 - 忠孝東路走九遍.mp3" />
     <Content Include="MUSIC\蕭煌奇 - 簡單的快樂.mp3" />
     <Content Include="MUSIC\黃小琥 - 沒那麼簡單.mp3" />
+    <Content Include="PageChange.html" />
     <Content Include="PLAYER PHOTO\PAUSE.png" />
     <Content Include="PLAYER PHOTO\PLAY.png" />
     <Content Include="PLAYER PHOTO\STOP.png" />

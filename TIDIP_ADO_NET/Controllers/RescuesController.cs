@@ -46,11 +46,15 @@ namespace TIDIP_ADO_NET.Controllers
         // 如需詳細資料，請參閱 https://go.microsoft.com/fwlink/?LinkId=317598。
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "RescueId,RescueName,County_City,Area,RescueAddress,RescueCreatedDate,RescueTel")] Rescues rescues)
-        {
+        public ActionResult Create(/*[Bind(Include = "RescueId,RescueName,County_City,Area,RescueAddress,RescueCreatedDate,RescueTel")]*/ Rescues rescues)
+        { 
+            
+            db.Rescues.Add(rescues);
+            rescues.RescueCreatedDate = DateTime.Now;
+            
             if (ModelState.IsValid)
             {
-                db.Rescues.Add(rescues);
+                
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -80,6 +84,7 @@ namespace TIDIP_ADO_NET.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "RescueId,RescueName,County_City,Area,RescueAddress,RescueCreatedDate,RescueTel")] Rescues rescues)
         {
+            rescues.RescueCreatedDate = DateTime.Now;
             if (ModelState.IsValid)
             {
                 db.Entry(rescues).State = EntityState.Modified;

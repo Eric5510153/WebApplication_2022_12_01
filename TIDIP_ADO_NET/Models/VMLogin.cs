@@ -13,6 +13,7 @@ namespace TIDIP_ADO_NET.Models
         [Required(ErrorMessage ="請輸入帳號")]
         public string Account { get; set; }
         [DisplayName("密碼")]
+    //  [DataType(DataType.Password)]
         [Required(ErrorMessage = "請輸入密碼")]
         public string Password { get; set; }
     }

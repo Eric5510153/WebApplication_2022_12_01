@@ -106,11 +106,14 @@
     <Content Include="Content\Site.css" />
     <Content Include="dk-tw-citySelector.js" />
     <Content Include="dk-tw-citySelector.min.js" />
+    <Content Include="dk_tw.html" />
     <Content Include="Global.asax" />
+    <Content Include="jQuery-TWzipcode-master\jquery.twzipcode - 複製.js" />
     <Content Include="jQuery-TWzipcode-master\jquery.twzipcode.js" />
     <Content Include="jQuery-TWzipcode-master\jquery.twzipcode.min.js" />
     <Content Include="jQuery-TWzipcode-master\old\jquery.twzipcode-1.4.1.js" />
     <Content Include="jQuery-TWzipcode-master\old\jquery.twzipcode-1.4.1.min.js" />
+    <Content Include="jQuery-TWzipcode-master\old\jquery.twzipcode.min.js" />
     <Content Include="jQuery-TWzipcode-master\twzipcode.js" />
     <Content Include="Models\TIDIP_Model.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -233,7 +236,6 @@
     <Content Include="Scripts\umd\popper.js" />
     <Content Include="Scripts\umd\popper.min.js" />
     <Content Include="twzipcode.html" />
-    <Content Include="twzipcode2.html" />
     <Content Include="Web.config" />
     <Content Include="Scripts\umd\popper.min.js.map" />
     <Content Include="Scripts\umd\popper.js.map" />
@@ -288,6 +290,7 @@
     <Compile Include="Models\Admins.cs">
       <DependentUpon>TIDIP_Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\CheckIDNumber.cs" />
     <Compile Include="Models\C__MigrationHistory.cs">
       <DependentUpon>TIDIP_Model.tt</DependentUpon>
     </Compile>
@@ -354,9 +357,10 @@
     <Content Include="Views\Login\Login.cshtml" />
     <Content Include="Views\Disaster_Accident\Create.cshtml" />
     <Content Include="Views\Shared\_Layout_Manger.cshtml" />
-    <Content Include="Views\MembersLogin\MBLogin.cshtml" />
-    <Content Include="Views\MembersLogin\Index.cshtml" />
+    <Content Include="Views\NotUse_MembersLogin\MBLogin.cshtml" />
+    <Content Include="Views\NotUse_MembersLogin\Index.cshtml" />
     <Content Include="Views\Login\MBLogin.cshtml" />
+    <Content Include="Views\Members\MbCreateView.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

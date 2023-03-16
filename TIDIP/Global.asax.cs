@@ -14,7 +14,7 @@ namespace TIDIP
     {
         protected void Application_Start()
         {
-            Database.SetInitializer<TIDIPContext>(new TIDIPInitailizer());
+           // Database.SetInitializer<TIDIPContext>(new TIDIPInitailizer());
 
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
