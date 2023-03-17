@@ -1,4 +1,5 @@
-﻿using System.Web;
+﻿using MCSDD26.Controllers;
+using System.Web;
 using System.Web.Mvc;
 
 namespace MCSDD26
@@ -15,7 +16,7 @@ namespace MCSDD26
                 View = "Error2"
 
             }); ;
-
+            filters.Add(new LogReport());
         }
     }
 }

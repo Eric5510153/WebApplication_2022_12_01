@@ -171,6 +171,7 @@
     <Compile Include="Controllers\EmployeesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\HomeManagerController.cs" />
+    <Compile Include="Controllers\LogReport.cs" />
     <Compile Include="Controllers\MemberOrderController.cs" />
     <Compile Include="Controllers\MembersController.cs" />
     <Compile Include="Controllers\PayTypesController.cs" />
